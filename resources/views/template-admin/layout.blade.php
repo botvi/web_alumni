@@ -26,7 +26,7 @@
 	<link rel="stylesheet" href="{{ asset('admin') }}/assets/css/semi-dark.css"/>
 	<link rel="stylesheet" href="{{ asset('admin') }}/assets/css/header-colors.css"/>
     @yield('style')
-	<title>Dashboard</title>
+	<title>Alumni UNIKS</title>
 </head>
 
 <body>
@@ -39,7 +39,7 @@
 					{{-- <img src="{{ asset('env') }}/logotangkas.png" class="logo-icon" alt="logo icon"> --}}
 				</div>
 				<div>
-					<h4 class="logo-text">Dashboard</h4>
+					<h4 class="logo-text">Alumni UNIKS</h4>
 				</div>
 				<div class="toggle-icon ms-auto"><i class='bx bx-arrow-to-left'></i>
 				</div>
@@ -340,7 +340,7 @@
 					</div>
 					<div class="user-box dropdown">
 						<a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							<img src="https://cdn-icons-png.flaticon.com/512/9187/9187604.png" class="user-img" alt="user avatar">
+							<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDtysDKgdhbACvR6DsyK0WJyANgBXIYw4Ukg&s" class="user-img" alt="user avatar">
 						
 							<div class="user-info ps-3">
 									<p class="user-name mb-0">Guest</p>
@@ -385,7 +385,7 @@
     <!--start switcher-->
 
     <!--end switcher-->
-    {{-- @include('sweetalert::alert') --}}
+    @include('sweetalert::alert')
 
     @yield('script')
 

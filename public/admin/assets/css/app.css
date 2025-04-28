@@ -34,7 +34,8 @@ a {
 	background: #fff;
 	border-right: 0 solid #e4e4e4;
 	z-index: 11;
-	box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%)!important;
+	-webkit-box-shadow: 0 2px 6px 0 rgba(103, 232, 131, 0.65), 0 2px 6px 0 rgba(103, 232, 131, 0.54);
+    box-shadow: 0 2px 6px 0 rgba(103, 232, 131, 0.65), 0 2px 6px 0 rgba(103, 232, 131, 0.54);
 	transition: all .2s ease-out
 }
 
@@ -48,7 +49,7 @@ a {
 	bottom: 0;
 	padding: 0 15px;
 	z-index: 5;
-	background: #fff;
+	background: #f2f2f2 url('https://assets.siakadcloud.com/assets/v1/img/pattern/pat_04.png') repeat;
 	background-clip: padding-box;
 	border-bottom: 1px solid #e4e4e4
 }
@@ -62,13 +63,13 @@ a {
 	margin-left: 10px;
 	margin-bottom: 0;
 	letter-spacing: 1px;
-	color: #008cff;
+	color: #49ab49;
 }
 
 .toggle-icon {
 	font-size: 22px;
 	cursor: pointer;
-	color: #008cff
+	color: #49ab49
 }
 
 .topbar {
@@ -77,11 +78,11 @@ a {
 	left: 250px;
 	right: 0;
 	height: 60px;
-	background: #fff;
-	border-bottom: 1px solid rgb(228 228 228 / 0%);
+	background: #f2f2f2 url('https://assets.siakadcloud.com/assets/v1/img/pattern/pat_04.png') repeat;
+	border-bottom: 1px solid rgba(162, 248, 104, 0);
 	z-index: 10;
-	-webkit-box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 0px 6px 0 rgb(206 206 238 / 54%);
-    box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 0px 6px 0 rgb(206 206 238 / 54%);
+	-webkit-box-shadow: 0 2px 6px 0 rgba(103, 232, 131, 0.65), 0 0px 6px 0 rgba(103, 232, 131, 0.54);
+    box-shadow: 0 2px 6px 0 rgba(103, 232, 131, 0.65), 0 0px 6px 0 rgba(103, 232, 131, 0.54);
 }
 
 .topbar .navbar {
@@ -103,7 +104,7 @@ a {
 }
 
 .page-footer {
-	background: #fff;
+	background: #f2f2f2 url('https://assets.siakadcloud.com/assets/v1/img/pattern/pat_04.png') repeat;
 	left: 250px;
 	right: 0;
 	bottom: 0;
@@ -222,7 +223,7 @@ a {
 .sidebar-wrapper .metismenu a:active,
 .sidebar-wrapper .metismenu a:focus,
 .sidebar-wrapper .metismenu a:hover {
-	color: #008cff;
+	color: #49ab49;
 	text-decoration: none;
 	background: rgb(13 110 253 / .12)
 }
@@ -343,7 +344,7 @@ a {
 	border-radius: 10px;
 	bottom: 20px;
 	right: 12px;
-	background-color: #008cff;
+	background-color: #49ab49;
 	z-index: 5
 }
 
@@ -541,7 +542,7 @@ a {
 }
 
 .fm-menu .list-group a:hover {
-	background: #008cff;
+	background: #49ab49;
 	color: #fff;
 	transition: all .2s ease-out
 }
@@ -887,7 +888,7 @@ a {
 .invoice header {
 	padding: 10px 0;
 	margin-bottom: 20px;
-	border-bottom: 1px solid #008cff
+	border-bottom: 1px solid #49ab49
 }
 
 .invoice .company-details {
@@ -918,7 +919,7 @@ a {
 
 .invoice .invoice-details .invoice-id {
 	margin-top: 0;
-	color: #008cff
+	color: #49ab49
 }
 
 .invoice main {
@@ -933,7 +934,7 @@ a {
 
 .invoice main .notices {
 	padding-left: 6px;
-	border-left: 6px solid #008cff;
+	border-left: 6px solid #49ab49;
 	background: #e7f2ff;
 	padding: 10px
 }
@@ -965,7 +966,7 @@ a {
 .invoice table td h3 {
 	margin: 0;
 	font-weight: 400;
-	color: #008cff;
+	color: #49ab49;
 	font-size: 1.2em
 }
 
@@ -979,7 +980,7 @@ a {
 .invoice table .no {
 	color: #fff;
 	font-size: 1.6em;
-	background: #008cff
+	background: #49ab49
 }
 
 .invoice table .unit {
@@ -987,7 +988,7 @@ a {
 }
 
 .invoice table .total {
-	background: #008cff;
+	background: #49ab49;
 	color: #fff
 }
 
@@ -1010,9 +1011,9 @@ a {
 }
 
 .invoice table tfoot tr:last-child td {
-	color: #008cff;
+	color: #49ab49;
 	font-size: 1.4em;
-	border-top: 1px solid #008cff
+	border-top: 1px solid #49ab49
 }
 
 .invoice table tfoot tr td:first-child {
@@ -1174,7 +1175,7 @@ a {
 
 .chat-tab-menu .nav-pills .nav-link.active,
 .chat-tab-menu .nav-pills .show>.nav-link {
-	color: #008cff;
+	color: #49ab49;
 	background-color: rgb(0 123 255 / 0%)
 }
 
@@ -1469,8 +1470,8 @@ a {
 }
 
 .nav-primary.nav-tabs .nav-link.active {
-	color: #008cff;
-	border-color: #008cff #008cff #fff
+	color: #49ab49;
+	border-color: #49ab49 #49ab49 #fff
 }
 
 .nav-danger.nav-tabs .nav-link.active {
@@ -1776,11 +1777,8 @@ a {
 }
 
 .bg-login {
-	background-image: url(../images/login-images/bg-login-img.jpg);
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-attachment: fixed
+	background: #f2f2f2 url('https://assets.siakadcloud.com/assets/v1/img/pattern/pat_04.png') repeat;
+	
 }
 
 .bg-forgot {
@@ -1820,19 +1818,19 @@ a {
 
 
 .btn-inverse-primary {
-	color: #008cff;
+	color: #49ab49;
     background-color: rgba(0, 140, 255, 0.18);
     border-color: rgb(209, 234, 255);
 }
 
 .btn-inverse-primary:hover {
-	color: #008cff;
+	color: #49ab49;
     background-color: rgba(0, 140, 255, 0.18);
     border-color: rgba(0, 140, 255, 0.18);
 }
 
 .btn-inverse-primary:focus {
-	color: #008cff;
+	color: #49ab49;
     background-color: rgba(0, 140, 255, 0.18);
     border-color: rgba(0, 140, 255, 0.18);
 	box-shadow: 0 0 0 .25rem rgba(49, 132, 253, .3)
@@ -2355,7 +2353,7 @@ input.search-control-2::placeholder {
 	height: 40px;
 	line-height: 40px;
 	font-size: 24px;
-	background: #008cff;
+	background: #49ab49;
 	box-shadow: 0 .3rem .6rem rgba(0, 0, 0, .13);
 	color: #fff;
 	text-align: center;
