@@ -343,8 +343,8 @@
 							<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDtysDKgdhbACvR6DsyK0WJyANgBXIYw4Ukg&s" class="user-img" alt="user avatar">
 						
 							<div class="user-info ps-3">
-									<p class="user-name mb-0">Guest</p>
-									<p class="designation mb-0">Not Logged In</p>
+									<p class="user-name mb-0">{{ auth()->user()->nama }}</p>
+									<p class="designation mb-0">{{ auth()->user()->email }}</p>
 							</div>
 						</a>
 						

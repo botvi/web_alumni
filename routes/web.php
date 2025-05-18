@@ -11,6 +11,7 @@ use App\Http\Controllers\admin\{
     DaftarWisudaController,
     TracerStudiUniksController,
     LaporanController,
+    ProfilAdminController,
 };
 use App\Http\Controllers\web\{
     WebController,
@@ -57,6 +58,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::post('/laporan', [LaporanController::class, 'update'])->name('laporan.update');
     Route::get('/laporan/printdaftarwisuda', [LaporanController::class, 'printdaftarwisuda'])->name('laporan.printdaftarwisuda');
     Route::get('/laporan/printdatapekerjaan', [LaporanController::class, 'printdatapekerjaan'])->name('laporan.printdatapekerjaan');
+    Route::get('/profil-admin', [ProfilAdminController::class, 'index'])->name('profil-admin.index');
+    Route::post('/profil-admin', [ProfilAdminController::class, 'update'])->name('profil-admin.update');
 });
 
 

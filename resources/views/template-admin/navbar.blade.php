@@ -6,6 +6,13 @@
             <div class="menu-title">DASHBOARD</div>
         </a>
     </li>
+    <li class="menu-label">PROFIL ADMIN</li>
+    <li>
+        <a href="/profil-admin">
+            <div class="parent-icon"><i class='bx bx-user'></i></div>
+            <div class="menu-title">Profil Admin</div>
+        </a>
+    </li>
     <li class="menu-label">MASTER DATA</li>
     <li>
         <a href="/master_fakultas">
