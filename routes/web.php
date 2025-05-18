@@ -10,6 +10,7 @@ use App\Http\Controllers\admin\{
     DaftarLowonganPekerjaanController,
     DaftarWisudaController,
     TracerStudiUniksController,
+    LaporanController,
 };
 use App\Http\Controllers\web\{
     WebController,
@@ -52,6 +53,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('/daftar_wisuda', DaftarWisudaController::class);
     Route::get('/daftar_wisuda/getProgramStudi/{fakultas_kode}', [DaftarWisudaController::class, 'getProgramStudi'])->name('daftar_wisuda.getProgramStudi');
     Route::resource('/tracer_studi_uniks', TracerStudiUniksController::class);
+    Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
+    Route::post('/laporan', [LaporanController::class, 'update'])->name('laporan.update');
+    Route::get('/laporan/printdaftarwisuda', [LaporanController::class, 'printdaftarwisuda'])->name('laporan.printdaftarwisuda');
+    Route::get('/laporan/printdatapekerjaan', [LaporanController::class, 'printdatapekerjaan'])->name('laporan.printdatapekerjaan');
 });
 
 
