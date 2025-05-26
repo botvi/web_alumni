@@ -84,6 +84,10 @@
                                 <label class="form-label">PISN</label>
                                 <input type="text" class="form-control" name="pisn" value="{{ $user->pisn ?? '' }}" required>
                             </div>
+                            <div class="mb-3">
+                                <label class="form-label">NIK</label>
+                                <input type="text" class="form-control" name="nik" value="{{ $user->nik ?? '' }}" required>
+                            </div>
                         </div>
                     </div>
 

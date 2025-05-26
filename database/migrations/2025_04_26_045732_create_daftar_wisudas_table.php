@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('nomor_seri_ijazah')->unique()->nullable();
             $table->string('nomor_seri_transkrip')->unique()->nullable();
             $table->string('pisn')->unique()->nullable();
+            $table->string('nik')->unique()->nullable();
             $table->string('pin_akses')->nullable();
             $table->timestamps();
 

@@ -21,6 +21,7 @@ class DaftarWisuda extends Model
         'nomor_seri_ijazah',
         'nomor_seri_transkrip',
         'pisn',
+        'nik',
         'pin_akses',
     ];
 

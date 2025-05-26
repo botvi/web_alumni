@@ -59,6 +59,7 @@ class LengkapiDataController extends Controller
             'nomor_seri_ijazah' => 'required|string|max:255',
             'nomor_seri_transkrip' => 'required|string|max:255',
             'pisn' => 'required|string|max:255',
+            'nik' => 'required|string|max:255',
             // DAFTAR WISUDA
             // TRACERSTUDIUNIKS
             'npm' => 'required|string|max:255',
@@ -85,7 +86,8 @@ class LengkapiDataController extends Controller
                 'tanggal_lahir' => $request->tanggal_lahir,
                 'nomor_seri_ijazah' => $request->nomor_seri_ijazah,
                 'nomor_seri_transkrip' => $request->nomor_seri_transkrip,
-                'pisn' => $request->pisn
+                'pisn' => $request->pisn,
+                'nik' => $request->nik
             ]);
         }
 

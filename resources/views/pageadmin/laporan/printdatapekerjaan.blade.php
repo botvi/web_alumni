@@ -63,8 +63,12 @@ header('Pragma: public');
             <th style="width: 10%;">TEMPAT LAHIR</th>
             <th style="width: 10%;">TANGGAL LAHIR</th>
             <th style="width: 10%;">JENIS KELAMIN</th>
-            <th style="width: 10%;">PROGRAM STUDI</th>
+            <th style="width: 10%;">NOMOR TELEPON</th>
+            <th style="width: 10%;">EMAIL</th>
+            <th style="width: 10%;">TANGGAL LULUS</th>
             <th style="width: 10%;">IPK</th>
+            <th style="width: 10%;">MASA STUDI</th>
+            <th style="width: 10%;">PROGRAM STUDI</th>
             <th style="width: 10%;">JENIS PEKERJAAN</th>
             <th style="width: 10%;">TEMPAT BEKERJA</th>
         </tr>
@@ -78,8 +82,12 @@ header('Pragma: public');
                 <td>{{ $tracer->tempat_lahir }}</td>
                 <td>{{ \Carbon\Carbon::parse($tracer->tanggal_lahir)->isoFormat('D MMMM Y') }}</td>
                 <td>{{ $tracer->jenis_kelamin }}</td>
-                <td>{{ $tracer->programStudi->nama_prodi }}</td>
+                <td>{{ $tracer->nomor_telepon }}</td>
+                <td>{{ $tracer->email }}</td>
+                <td>{{ \Carbon\Carbon::parse($tracer->tanggal_lulus)->isoFormat('D MMMM Y') }}</td>
                 <td>{{ $tracer->ipk }}</td>
+                <td>{{ $tracer->masa_studi }}</td>
+                <td>{{ $tracer->programStudi->nama_prodi }}</td>
                 <td>{{ $tracer->jenis_pekerjaan }}</td>
                 <td>{{ $tracer->tempat_bekerja }}</td>
             </tr>
