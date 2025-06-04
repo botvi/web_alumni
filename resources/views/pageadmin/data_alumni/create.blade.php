@@ -10,8 +10,8 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0 p-0">
                         <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Daftar Wisuda</li>
-                        <li class="breadcrumb-item active" aria-current="page">Tambah Daftar Wisuda</li>
+                        <li class="breadcrumb-item active" aria-current="page">Data Alumni</li>
+                        <li class="breadcrumb-item active" aria-current="page">Tambah Data Alumni</li>
                     </ol>
                 </nav>
             </div>
@@ -24,10 +24,10 @@
                     <div class="card-body p-5">
                         <div class="card-title d-flex align-items-center">
                             <div><i class="bx bx-plus-circle me-1 font-22 text-primary"></i></div>
-                            <h5 class="mb-0 text-primary">Tambah Daftar Wisuda</h5>
+                            <h5 class="mb-0 text-primary">Tambah Data Alumni</h5>
                         </div>
                         <hr>
-                        <form action="{{ route('daftar_wisuda.store') }}" method="POST" class="row g-3">
+                        <form action="{{ route('data_alumni.store') }}" method="POST" class="row g-3">
                             @csrf
 
                             <div class="col-md-12">
@@ -42,7 +42,7 @@
 
                             <div class="col-md-12">
                                 <label for="npm" class="form-label">NPM</label>
-                                <input type="text" class="form-control" id="npm" name="npm" required>
+                                <input type="number" class="form-control" id="npm" name="npm" required>
                                 <small class="text-danger">
                                     @foreach ($errors->get('npm') as $error)
                                         <li>{{ $error }}</li>
@@ -121,8 +121,83 @@
                                 </small>
                             </div>
 
+                            <div class="col-md-12">
+                                <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
+                                <select class="form-select" id="jenis_kelamin" name="jenis_kelamin" required>
+                                    <option value="">Pilih Jenis Kelamin</option>
+                                    <option value="Laki-laki">Laki-laki</option>
+                                    <option value="Perempuan">Perempuan</option>
+                                </select>
+                                <small class="text-danger">
+                                    @foreach ($errors->get('jenis_kelamin') as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </small>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
+                                <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" required>
+                                <small class="text-danger">
+                                    @foreach ($errors->get('tempat_lahir') as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </small>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
+                                <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" required>
+                                <small class="text-danger">
+                                    @foreach ($errors->get('tanggal_lahir') as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </small>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label for="nomor_seri_ijazah" class="form-label">Nomor Seri Ijazah</label>
+                                <input type="text" class="form-control" id="nomor_seri_ijazah" name="nomor_seri_ijazah" required>
+                                <small class="text-danger">
+                                    @foreach ($errors->get('nomor_seri_ijazah') as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </small>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label for="nomor_seri_transkrip" class="form-label">Nomor Seri Transkrip</label>
+                                <input type="text" class="form-control" id="nomor_seri_transkrip" name="nomor_seri_transkrip" required>
+                                <small class="text-danger">
+                                    @foreach ($errors->get('nomor_seri_transkrip') as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </small>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label for="pisn" class="form-label">PISN</label>
+                                <input type="text" class="form-control" id="pisn" name="pisn" required>
+                                <small class="text-danger">
+                                    @foreach ($errors->get('pisn') as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </small>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label for="nik" class="form-label">NIK</label>
+                                <input type="number" class="form-control" id="nik" name="nik" required>
+                                <small class="text-danger">
+                                    @foreach ($errors->get('nik') as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </small>
+                            </div>
+
                             <div class="col-12">
                                 <button type="submit" class="btn btn-primary px-5">Simpan</button>
+                                <a href="{{ route('data_alumni.index') }}" class="btn btn-secondary px-5">Kembali</a>
                             </div>
                         </form>
                     </div>
@@ -139,7 +214,7 @@ $(document).ready(function() {
         var fakultasKode = $(this).val();
         if(fakultasKode) {
             $.ajax({
-                url: '{{ route('daftar_wisuda.getProgramStudi', ['fakultas_kode' => ':fakultas_kode']) }}'.replace(':fakultas_kode', fakultasKode),
+                url: '{{ route('data_alumni.getProgramStudi', ['fakultas_kode' => ':fakultas_kode']) }}'.replace(':fakultas_kode', fakultasKode),
                 type: 'GET',
                 dataType: 'json',
                 success: function(data) {

@@ -32,18 +32,32 @@
             <div class="menu-title">Lowongan Pekerjaan</div>
         </a>
     </li>
-    <li class="menu-label">DATA WISUDA/ALUMNI</li>
+    <li class="menu-label">DATA ALUMNI</li>
     <li>
-        <a href="/daftar_wisuda">
+        <a href="/data_alumni">
             <div class="parent-icon"><i class='bx bxs-graduation'></i></div>
-            <div class="menu-title">Daftar Wisuda/Alumni</div>
+            <div class="menu-title">Data Alumni</div>
         </a>
     </li>
-    <li class="menu-label">DATA TRACER STUDI UNIKA</li>
+    <li class="menu-label">DATA PEKERJAAN ALUMNI</li>
     <li>
-        <a href="/tracer_studi_uniks">
+        <a href="/data_pekerjaan_alumni">
             <div class="parent-icon"><i class='bx bx-line-chart'></i></div>
-            <div class="menu-title">Tracer Studi Uniks</div>
+            <div class="menu-title">Data Pekerjaan Alumni</div>
+        </a>
+    </li>
+    <li class="menu-label">KEGIATAN ALUMNI</li>
+    <li>
+        <a href="/kegiatan_alumni">
+            <div class="parent-icon"><i class='bx bx-calendar'></i></div>
+            <div class="menu-title">Kegiatan Alumni</div>
+        </a>
+    </li>
+    <li class="menu-label">SARAN ALUMNI</li>
+    <li>
+        <a href="/saran_alumni">
+            <div class="parent-icon"><i class='bx bx-message-square-dots'></i></div>
+            <div class="menu-title">Saran Alumni</div>
         </a>
     </li>
     <li class="menu-label">LAPORAN</li>

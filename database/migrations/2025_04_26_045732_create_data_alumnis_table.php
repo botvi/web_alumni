@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('daftar_wisudas', function (Blueprint $table) {
+        Schema::create('data_alumnis', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->string('jenis_kelamin');
             $table->string('npm')->unique();
             $table->string('tempat_lahir')->nullable();
             $table->date('tanggal_lahir')->nullable();
@@ -26,7 +27,9 @@ return new class extends Migration
             $table->string('nomor_seri_transkrip')->unique()->nullable();
             $table->string('pisn')->unique()->nullable();
             $table->string('nik')->unique()->nullable();
+
             $table->string('pin_akses')->nullable();
+            
             $table->timestamps();
 
             $table->foreign('fakultas_kode')
@@ -48,6 +51,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('daftar_wisudas');
+        Schema::dropIfExists('data_alumnis');
     }
 };

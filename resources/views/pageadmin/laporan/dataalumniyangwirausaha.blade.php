@@ -12,24 +12,24 @@ header('Pragma: public');
         </td>
     </tr>
     <tr>
-        <td colspan="10" style="font-size: 16px; font-weight: bold; text-align: center;">
+        <td colspan="8" style="font-size: 16px; font-weight: bold; text-align: center;">
             YAYASAN PERGURUAN TINGGI ISLAM KUANTAN SINGINGI
         </td>
     </tr>
     <tr>
-        <td colspan="10" style="font-size: 16px; font-weight: bold; text-align: center;">
+        <td colspan="8" style="font-size: 16px; font-weight: bold; text-align: center;">
             UNIVERSITAS ISLAM KUANTAN SINGINGI
         </td>
     </tr>
     <tr>
-        <td colspan="10" style="font-size: 16px; font-weight: bold; text-align: center;">
+        <td colspan="8" style="font-size: 16px; font-weight: bold; text-align: center;">
             Jl. Gatot Subroto KM 7 Teluk Kuantan Telp. 0760-561655 Fax. 0760-561655
         </td>
     </tr>
     
     <tr>
-        <td colspan="10" style="font-size: 16px; font-weight: bold; text-align: center;">
-            DATA DATA PEKERJAAN ALUMNI
+        <td colspan="8" style="font-size: 16px; font-weight: bold; text-align: center;">
+            DATA DATA ALUMNI YANG WIRAUSAHA
         </td>
     </tr>
 </table>
@@ -63,33 +63,27 @@ header('Pragma: public');
             <th style="width: 10%;">TEMPAT LAHIR</th>
             <th style="width: 10%;">TANGGAL LAHIR</th>
             <th style="width: 10%;">JENIS KELAMIN</th>
-            <th style="width: 10%;">NOMOR TELEPON</th>
-            <th style="width: 10%;">EMAIL</th>
-            <th style="width: 10%;">TANGGAL LULUS</th>
-            <th style="width: 10%;">IPK</th>
-            <th style="width: 10%;">MASA STUDI</th>
-            <th style="width: 10%;">PROGRAM STUDI</th>
-            <th style="width: 10%;">JENIS PEKERJAAN</th>
-            <th style="width: 10%;">TEMPAT BEKERJA</th>
+            <th style="width: 10%;">JENIS USAHA</th>
+            <th style="width: 10%;">TAHUN MULAI</th>
+            <th style="width: 10%;">JUMLAH KARYAWAN</th>
+            <th style="width: 10%;">OMSET BULANAN</th>
+            <th style="width: 10%;">TANTANGAN USAHA</th>
         </tr>
     </thead>
     <tbody>
-        @foreach ($tracerStudiUniks as $tracer)
+        @foreach ($dataPekerjaanAlumni as $tracer)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $tracer->npm }}</td>
-                <td>{{ $tracer->nama }}</td>
-                <td>{{ $tracer->tempat_lahir }}</td>
-                <td>{{ \Carbon\Carbon::parse($tracer->tanggal_lahir)->isoFormat('D MMMM Y') }}</td>
-                <td>{{ $tracer->jenis_kelamin }}</td>
-                <td>{{ $tracer->nomor_telepon }}</td>
-                <td>{{ $tracer->email }}</td>
-                <td>{{ \Carbon\Carbon::parse($tracer->tanggal_lulus)->isoFormat('D MMMM Y') }}</td>
-                <td>{{ $tracer->ipk }}</td>
-                <td>{{ $tracer->masa_studi }}</td>
-                <td>{{ $tracer->programStudi->nama_prodi }}</td>
-                <td>{{ $tracer->jenis_pekerjaan }}</td>
-                <td>{{ $tracer->tempat_bekerja }}</td>
+                <td>{{ $tracer->dataAlumni->npm }}</td>
+                <td>{{ $tracer->dataAlumni->nama }}</td>
+                <td>{{ $tracer->dataAlumni->tempat_lahir }}</td>
+                <td>{{ \Carbon\Carbon::parse($tracer->dataAlumni->tanggal_lahir)->isoFormat('D MMMM Y') }}</td>
+                <td>{{ $tracer->dataAlumni->jenis_kelamin }}</td>
+                <td>{{ $tracer->jenis_usaha }}</td>
+                <td>{{ $tracer->tahun_mulai }}</td>
+                <td>{{ $tracer->jumlah_karyawan }}</td>
+                <td>{{ $tracer->omset_bulanan }}</td>
+                <td>{{ $tracer->tantangan_usaha }}</td>
             </tr>
         @endforeach
     </tbody>

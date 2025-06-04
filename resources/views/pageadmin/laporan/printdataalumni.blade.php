@@ -30,7 +30,7 @@ header('Pragma: public');
     
     <tr>
         <td colspan="10" style="font-size: 16px; font-weight: bold; text-align: center;">
-            DATA DAFTAR ALUMNI
+            DATA ALUMNI
         </td>
     </tr>
 </table>
@@ -76,7 +76,7 @@ header('Pragma: public');
         </tr>
     </thead>
     <tbody>
-        @foreach ($daftarWisuda as $p)
+        @foreach ($dataAlumni as $p)
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ \Carbon\Carbon::parse($p->tanggal_lulus)->isoFormat('D MMMM Y') }}</td>

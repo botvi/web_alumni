@@ -10,19 +10,19 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-0 p-0">
                             <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Daftar Wisuda</li>
+                            <li class="breadcrumb-item active" aria-current="page">Data Alumni</li>
                         </ol>
                     </nav>
                 </div>
             </div>
             <!--breadcrumb-->
-            <h6 class="mb-0 text-uppercase">Data Daftar Wisuda</h6>
+            <h6 class="mb-0 text-uppercase">Data Alumni</h6>
             <hr />
             <div class="card">
                 <div class="card-body">
                     <div class="row mb-3">
                         <div class="col-md-3">
-                            <form action="{{ route('daftar_wisuda.index') }}" method="GET" class="d-flex">
+                            <form action="{{ route('data_alumni.index') }}" method="GET" class="d-flex">
                                 <select name="tahun_wisuda" class="form-select me-2">
                                     @php
                                         $currentYear = date('Y');
@@ -39,7 +39,7 @@
                             </form>
                         </div>
                         <div class="col-md-9">
-                            <a href="{{ route('daftar_wisuda.create') }}" class="btn btn-primary float-end">Tambah Data</a>
+                            <a href="{{ route('data_alumni.create') }}" class="btn btn-primary float-end">Tambah Data</a>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -80,7 +80,7 @@
                                         12 => 'Desember',
                                     ];
                                     @endphp
-                                @foreach ($daftarWisuda as $index => $d)
+                                @foreach ($dataAlumni as $index => $d)
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
                                     <td><span class="badge bg-primary">{{ $d->pin_akses ?? '<span class="badge bg-danger">Data belum dilengkapi</span>' }}</span></td>
@@ -112,9 +112,9 @@
                                         <td>{!! $d->nomor_seri_transkrip ?? '<span class="badge bg-danger">Data belum dilengkapi</span>' !!}</td>
                                         <td>{!! $d->pisn ?? '<span class="badge bg-danger">Data belum dilengkapi</span>' !!}</td>
                                         <td>
-                                            <a href="{{ route('daftar_wisuda.edit', $d->id) }}"
+                                            <a href="{{ route('data_alumni.edit', $d->id) }}"
                                                 class="btn btn-sm btn-warning">Edit</a>
-                                            <form action="{{ route('daftar_wisuda.destroy', $d->id) }}" method="POST"
+                                            <form action="{{ route('data_alumni.destroy', $d->id) }}" method="POST"
                                                 style="display:inline;" class="delete-form">
                                                 @csrf
                                                 @method('DELETE')

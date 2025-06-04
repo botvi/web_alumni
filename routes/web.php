@@ -8,16 +8,19 @@ use App\Http\Controllers\admin\{
     MasterFakultasController,
     MasterProdiController,
     DaftarLowonganPekerjaanController,
-    DaftarWisudaController,
-    TracerStudiUniksController,
+    DataAlumniController,
+    DataPekerjaanAlumniController,
     LaporanController,
     ProfilAdminController,
+    KegiatanAlumniController,
+    SaranAlumniController,
 };
 use App\Http\Controllers\web\{
     WebController,
     AboutController,
     LowonganKerjaController,
     LengkapiDataController,
+    DaftarKegiatanAlumniController,
 };
 use App\Http\Controllers\{
     LoginController,
@@ -51,13 +54,23 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('/master_fakultas', MasterFakultasController::class);
     Route::resource('/master_prodi', MasterProdiController::class);
     Route::resource('/master_lowongan', DaftarLowonganPekerjaanController::class);
-    Route::resource('/daftar_wisuda', DaftarWisudaController::class);
-    Route::get('/daftar_wisuda/getProgramStudi/{fakultas_kode}', [DaftarWisudaController::class, 'getProgramStudi'])->name('daftar_wisuda.getProgramStudi');
-    Route::resource('/tracer_studi_uniks', TracerStudiUniksController::class);
+
+    Route::resource('/data_alumni', DataAlumniController::class);
+    Route::resource('/data_pekerjaan_alumni', DataPekerjaanAlumniController::class);
+    Route::get('/data_alumni/getProgramStudi/{fakultas_kode}', [DataAlumniController::class, 'getProgramStudi'])->name('data_alumni.getProgramStudi');
+    
+    Route::resource('/kegiatan_alumni', KegiatanAlumniController::class);
+
+    Route::resource('/saran_alumni', SaranAlumniController::class);
+    Route::post('/saran_alumni/berikan_respon/{id}', [SaranAlumniController::class, 'berikanRespon'])->name('saran_alumni.berikan_respon');
+
     Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
     Route::post('/laporan', [LaporanController::class, 'update'])->name('laporan.update');
-    Route::get('/laporan/printdaftarwisuda', [LaporanController::class, 'printdaftarwisuda'])->name('laporan.printdaftarwisuda');
-    Route::get('/laporan/printdatapekerjaan', [LaporanController::class, 'printdatapekerjaan'])->name('laporan.printdatapekerjaan');
+    Route::get('/laporan/printdataalumni', [LaporanController::class, 'printdataalumni'])->name('laporan.printdataalumni');
+    Route::get('/laporan/printdataalumniyangbekerja', [LaporanController::class, 'printdataalumniyangbekerja'])->name('laporan.printdataalumniyangbekerja');
+    Route::get('/laporan/printdataalumniyangtidakbekerja', [LaporanController::class, 'printdataalumniyangtidakbekerja'])->name('laporan.printdataalumniyangtidakbekerja');
+    Route::get('/laporan/printdataalumniyangwirausaha', [LaporanController::class, 'printdataalumniyangwirausaha'])->name('laporan.printdataalumniyangwirausaha');
+  
     Route::get('/profil-admin', [ProfilAdminController::class, 'index'])->name('profil-admin.index');
     Route::post('/profil-admin', [ProfilAdminController::class, 'update'])->name('profil-admin.update');
 });
@@ -66,7 +79,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 Route::get('/', [WebController::class, 'index'])->name('web.index');
 Route::get('/lowongan-kerja', [LowonganKerjaController::class, 'index'])->name('lowongan-kerja.index');
 Route::get('/tentang', [AboutController::class, 'index'])->name('tentang.index');
+Route::get('/daftar-kegiatan-alumni', [DaftarKegiatanAlumniController::class, 'index'])->name('daftar-kegiatan-alumni.index');
 
 Route::post('/verifikasi', [LengkapiDataController::class, 'verifikasi'])->name('verifikasi.index');
 Route::get('/lengkapi-data/{pin_akses}/{npm}', [LengkapiDataController::class, 'lengkapidata'])->name('lengkapi-data.index');
 Route::post('/lengkapi-data', [LengkapiDataController::class, 'simpan'])->name('lengkapi-data.simpan');
+Route::post('/lengkapi-data/saran', [LengkapiDataController::class, 'saran'])->name('lengkapi-data.saran');

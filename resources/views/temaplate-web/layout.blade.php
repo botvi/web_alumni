@@ -23,7 +23,7 @@
   <link href="{{ asset('web') }}/assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="{{ asset('web') }}/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="{{ asset('web') }}/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
+@yield('style')
   <!-- Main CSS File -->
   <link href="{{ asset('web') }}/assets/css/main.css" rel="stylesheet">
 

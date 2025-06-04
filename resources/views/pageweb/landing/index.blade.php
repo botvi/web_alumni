@@ -10,7 +10,7 @@
                     <p>Portal Alumni UNIKS adalah portal yang menyediakan informasi terkait alumni UNIKS</p>
                     <div class="d-flex">
                         <button type="button" class="btn-get-started" data-bs-toggle="modal" data-bs-target="#pinModal">
-                            Lengkapi Data sekarang
+                            Lengkapi Data Pekerjaan Alumni
                         </button>
 
                         <!-- Modal -->

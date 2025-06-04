@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
-use App\Models\DaftarWisuda;
-use App\Models\TracerStudiUniks;
+use App\Models\DataAlumni;
+use App\Models\DataPekerjaanAlumni;
 use App\Http\Controllers\Controller;
 use App\Models\DataLaporan;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -43,17 +43,35 @@ class LaporanController extends Controller
         return redirect()->route('laporan.index');
     }
 
-    public function printdaftarwisuda()
+    public function printdataalumni()
     {
         $dataLaporan = DataLaporan::first();
-        $daftarWisuda = DaftarWisuda::with('fakultas', 'programStudi')->get();
-        return view('pageadmin.laporan.printdaftarwisuda', compact('daftarWisuda', 'dataLaporan'));
+        $dataAlumni = DataAlumni::with('fakultas', 'programStudi')->get();
+        return view('pageadmin.laporan.printdataalumni', compact('dataAlumni', 'dataLaporan'));
     }
 
-    public function printdatapekerjaan()
+    public function printdataalumniyangbekerja()
     {
         $dataLaporan = DataLaporan::first();
-        $tracerStudiUniks = TracerStudiUniks::with('programStudi')->get();
-        return view('pageadmin.laporan.printdatapekerjaan', compact('tracerStudiUniks', 'dataLaporan'));
+        $dataPekerjaanAlumni = DataPekerjaanAlumni::with('dataAlumni')
+            ->where('apakah_bekerja', 'Ya')
+            ->get();
+        return view('pageadmin.laporan.dataalumniyangbekerja', compact('dataPekerjaanAlumni', 'dataLaporan'));
+    }
+    public function printdataalumniyangtidakbekerja()
+    {
+        $dataLaporan = DataLaporan::first();
+        $dataPekerjaanAlumni = DataPekerjaanAlumni::with('dataAlumni')
+            ->where('apakah_bekerja', 'Tidak')
+            ->get();
+        return view('pageadmin.laporan.dataalumniyangtidakbekerja', compact('dataPekerjaanAlumni', 'dataLaporan'));
+    }
+    public function printdataalumniyangwirausaha()
+    {
+        $dataLaporan = DataLaporan::first();
+        $dataPekerjaanAlumni = DataPekerjaanAlumni::with('dataAlumni')
+            ->where('apakah_bekerja', 'Wirausaha')
+            ->get();
+        return view('pageadmin.laporan.dataalumniyangwirausaha', compact('dataPekerjaanAlumni', 'dataLaporan'));
     }
 }

@@ -30,7 +30,7 @@
                             <form action="{{ route('laporan.update') }}" method="POST" class="row g-3">
                                 @csrf
                                 <div class="col-md-6">
-                                    <label for="lampiran_daftar_wisuda" class="form-label">Lampiran Daftar Wisuda</label>
+                                    <label for="lampiran_daftar_wisuda" class="form-label">Lampiran Data Alumni</label>
                                     <input type="text" class="form-control" id="lampiran_daftar_wisuda" value="{{ $dataLaporan->lampiran_daftar_wisuda ?? '' }}" name="lampiran_daftar_wisuda"
                                         required>
                                 </div>
@@ -40,7 +40,7 @@
                                         required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="nomor_daftar_wisuda" class="form-label">Nomor Daftar Wisuda</label>
+                                    <label for="nomor_daftar_wisuda" class="form-label">Nomor Data Alumni</label>
                                     <input type="text" class="form-control" id="nomor_daftar_wisuda" value="{{ $dataLaporan->nomor_daftar_wisuda ?? '' }}" name="nomor_daftar_wisuda"
                                         required>
                                 </div>
@@ -77,10 +77,10 @@
                         <div class="card-body p-5">
                             <div class="card-title d-flex align-items-center">  
                                 <div><i class="bx bx-file me-1 font-22 text-primary"></i></div>
-                                <h5 class="mb-0 text-primary">Laporan Daftar Wisuda</h5>
+                                <h5 class="mb-0 text-primary">Laporan Data Alumni</h5>
                             </div>
                             <hr>
-                            <a href="{{ route('laporan.printdaftarwisuda') }}" class="btn btn-primary px-5 {{ empty($dataLaporan->lampiran_daftar_wisuda) || empty($dataLaporan->nomor_daftar_wisuda) ? 'disabled' : '' }}" {{ empty($dataLaporan->lampiran_daftar_wisuda) || empty($dataLaporan->nomor_daftar_wisuda) ? 'onclick="return false;"' : '' }}>Cetak</a>
+                            <a href="{{ route('laporan.printdataalumni') }}" class="btn btn-primary px-5 {{ empty($dataLaporan->lampiran_daftar_wisuda) || empty($dataLaporan->nomor_daftar_wisuda) ? 'disabled' : '' }}" {{ empty($dataLaporan->lampiran_daftar_wisuda) || empty($dataLaporan->nomor_daftar_wisuda) ? 'onclick="return false;"' : '' }}>Cetak</a>
                         </div>
                     </div>
                 </div>
@@ -94,7 +94,29 @@
                                 <h5 class="mb-0 text-primary">Laporan Data Pekerjaan Alumni</h5>
                             </div>
                             <hr>
-                            <a href="{{ route('laporan.printdatapekerjaan') }}" class="btn btn-primary px-5 {{ empty($dataLaporan->lampiran_data_pekerjaan) || empty($dataLaporan->nomor_data_pekerjaan) ? 'disabled' : '' }}" {{ empty($dataLaporan->lampiran_data_pekerjaan) || empty($dataLaporan->nomor_data_pekerjaan) ? 'onclick="return false;"' : '' }}>Cetak</a>
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <a href="{{ route('laporan.printdataalumniyangbekerja') }}" 
+                                       class="btn btn-primary w-100 {{ empty($dataLaporan->lampiran_data_pekerjaan) || empty($dataLaporan->nomor_data_pekerjaan) ? 'disabled' : '' }}" 
+                                       {{ empty($dataLaporan->lampiran_data_pekerjaan) || empty($dataLaporan->nomor_data_pekerjaan) ? 'onclick="return false;"' : '' }}>
+                                        Cetak Data Alumni Bekerja
+                                    </a>
+                                </div>
+                                <div class="col-md-4">
+                                    <a href="{{ route('laporan.printdataalumniyangtidakbekerja') }}" 
+                                       class="btn btn-primary w-100 {{ empty($dataLaporan->lampiran_data_pekerjaan) || empty($dataLaporan->nomor_data_pekerjaan) ? 'disabled' : '' }}" 
+                                       {{ empty($dataLaporan->lampiran_data_pekerjaan) || empty($dataLaporan->nomor_data_pekerjaan) ? 'onclick="return false;"' : '' }}>
+                                        Cetak Data Alumni Tidak Bekerja
+                                    </a>
+                                </div>
+                                <div class="col-md-4">
+                                    <a href="{{ route('laporan.printdataalumniyangwirausaha') }}" 
+                                       class="btn btn-primary w-100 {{ empty($dataLaporan->lampiran_data_pekerjaan) || empty($dataLaporan->nomor_data_pekerjaan) ? 'disabled' : '' }}" 
+                                       {{ empty($dataLaporan->lampiran_data_pekerjaan) || empty($dataLaporan->nomor_data_pekerjaan) ? 'onclick="return false;"' : '' }}>
+                                        Cetak Data Alumni Wirausaha
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

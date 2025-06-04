@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\web;
 
 use Illuminate\Http\Request;
-use App\Models\DaftarWisuda;
-use App\Models\TracerStudiUniks;
+use App\Models\DataAlumni;
+use App\Models\DataPekerjaanAlumni;
+use App\Models\SaranAlumni;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Controllers\Controller;
 class LengkapiDataController extends Controller
@@ -16,7 +17,7 @@ class LengkapiDataController extends Controller
             'npm' => 'required|string|max:255'
         ]);
 
-        $user = DaftarWisuda::where('pin_akses', $request->pin_akses)
+        $user = DataAlumni::where('pin_akses', $request->pin_akses)
             ->where('npm', $request->npm)
             ->first();
 
@@ -32,7 +33,7 @@ class LengkapiDataController extends Controller
 
     public function lengkapidata($pin_akses, $npm)
     {
-        $user = DaftarWisuda::where('pin_akses', $pin_akses)
+        $user = DataAlumni::where('pin_akses', $pin_akses)
             ->where('npm', $npm)
             ->with('fakultas')
             ->with('programStudi')
@@ -42,92 +43,113 @@ class LengkapiDataController extends Controller
             return redirect()->back();
         }
 
-        $tracer = TracerStudiUniks::where('npm', $npm)->first();
-
+        $tracer = DataPekerjaanAlumni::where('data_alumni_id', $user->id)->first();
+        $saran = SaranAlumni::where('data_alumni_id', $user->id)->get();
         return view('pageweb.lengkapi-data.index', [
             'user' => $user,
-            'tracer' => $tracer
+            'tracer' => $tracer,
+            'saran' => $saran
         ]);
     }
 
     public function simpan(Request $request)
     {
         $request->validate([
-            // DAFTAR WISUDA
-            'tempat_lahir' => 'required|string|max:255',
-            'tanggal_lahir' => 'required|date', 
-            'nomor_seri_ijazah' => 'required|string|max:255',
-            'nomor_seri_transkrip' => 'required|string|max:255',
-            'pisn' => 'required|string|max:255',
-            'nik' => 'required|string|max:255',
-            // DAFTAR WISUDA
-            // TRACERSTUDIUNIKS
-            'npm' => 'required|string|max:255',
-            'nama' => 'required|string|max:255',
-            'jenis_kelamin' => 'required|string|max:255', 
-            'nomor_telepon' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'tanggal_lulus' => 'required|date',
-            'ipk' => 'required|numeric',
-            'masa_studi' => 'required|numeric',
-            'program_studi_kode' => 'required|string|max:255',
-            'jenis_pekerjaan' => 'required|string|max:255',
-            'tempat_bekerja' => 'required|string|max:255'
-            // TRACERSTUDIUNIKS
+            'data_alumni_id' => 'required|string|max:255',
+            'apakah_bekerja' => 'nullable|string|max:255',
+            'nomor_telepon' => 'nullable|string|max:255',
+            'email' => 'nullable|email|max:255',
+            'alamat_saat_ini' => 'nullable|string|max:255',
+            'nama_perusahaan' => 'nullable|string|max:255',
+            'alamat_perusahaan' => 'nullable|string|max:255',
+            'posisi_jabatan' => 'nullable|string|max:255',
+            'status_pekerjaan' => 'nullable|string|max:255',
+            'jenis_perusahaan' => 'nullable|string|max:255',
+            'gaji' => 'nullable|string|max:255',
+            'lama_mendapat_pekerjaan' => 'nullable|string|max:255',
+            'sumber_informasi_lowongan' => 'nullable|string|max:255',
+            'kesesuaian_bidang' => 'nullable|string|max:255',
+            'alasan_belum_bekerja' => 'nullable|string|max:255',
+            'menjalankan_usaha' => 'nullable|string|max:255',
+            'jenis_usaha' => 'nullable|string|max:255',
+            'tahun_mulai_usaha' => 'nullable|string|max:255',
+            'jumlah_karyawan' => 'nullable|string|max:255',
+            'omset_bulanan' => 'nullable|string|max:255',
+            'tantangan_usaha' => 'nullable|string|max:255',
         ]);
 
-        // Update atau simpan data wisuda
-        $wisuda = DaftarWisuda::where('npm', request('npm'))->first();
-
-
-        if ($wisuda) {
-            $wisuda->update([
-                'tempat_lahir' => $request->tempat_lahir,
-                'tanggal_lahir' => $request->tanggal_lahir,
-                'nomor_seri_ijazah' => $request->nomor_seri_ijazah,
-                'nomor_seri_transkrip' => $request->nomor_seri_transkrip,
-                'pisn' => $request->pisn,
-                'nik' => $request->nik
-            ]);
-        }
-
         // Update atau simpan data tracer studi
-        $tracer = TracerStudiUniks::where('npm', request('npm'))->first();
+        $tracer = DataPekerjaanAlumni::where('data_alumni_id', request('data_alumni_id'))->first();
 
         if ($tracer) {
             $tracer->update([
-                'nama' => $request->nama,
-                'tempat_lahir' => $request->tempat_lahir,
-                'tanggal_lahir' => $request->tanggal_lahir,
-                'jenis_kelamin' => $request->jenis_kelamin,
+                'data_alumni_id' => $request->data_alumni_id,
+                'apakah_bekerja' => $request->apakah_bekerja,
                 'nomor_telepon' => $request->nomor_telepon,
                 'email' => $request->email,
-                'tanggal_lulus' => $request->tanggal_lulus,
-                'ipk' => $request->ipk,
-                'masa_studi' => $request->masa_studi,
-                'program_studi_kode' => $request->program_studi_kode,
-                'jenis_pekerjaan' => $request->jenis_pekerjaan,
-                'tempat_bekerja' => $request->tempat_bekerja
+                'alamat_saat_ini' => $request->alamat_saat_ini,
+                'nama_perusahaan' => $request->nama_perusahaan,
+                'alamat_perusahaan' => $request->alamat_perusahaan,
+                'posisi_jabatan' => $request->posisi_jabatan,
+                'status_pekerjaan' => $request->status_pekerjaan,
+                'jenis_perusahaan' => $request->jenis_perusahaan,
+                'gaji' => $request->gaji,
+                'lama_mendapat_pekerjaan' => $request->lama_mendapat_pekerjaan,
+                'sumber_informasi_lowongan' => $request->sumber_informasi_lowongan,
+                'kesesuaian_bidang' => $request->kesesuaian_bidang,
+                'alasan_belum_bekerja' => $request->alasan_belum_bekerja,
+                'menjalankan_usaha' => $request->menjalankan_usaha,
+                'jenis_usaha' => $request->jenis_usaha,
+                'tahun_mulai_usaha' => $request->tahun_mulai_usaha,
+                'jumlah_karyawan' => $request->jumlah_karyawan,
+                'omset_bulanan' => $request->omset_bulanan,
+                'tantangan_usaha' => $request->tantangan_usaha
             ]);
         } else {
-            TracerStudiUniks::create([
-                'npm' => $request->npm,
-                'nama' => $request->nama,
-                'tempat_lahir' => $request->tempat_lahir,
-                'tanggal_lahir' => $request->tanggal_lahir,
-                'jenis_kelamin' => $request->jenis_kelamin,
+            DataPekerjaanAlumni::create([
+                'data_alumni_id' => $request->data_alumni_id,
+                'apakah_bekerja' => $request->apakah_bekerja,
                 'nomor_telepon' => $request->nomor_telepon,
                 'email' => $request->email,
-                'tanggal_lulus' => $request->tanggal_lulus,
-                'ipk' => $request->ipk,
-                'masa_studi' => $request->masa_studi,
-                'program_studi_kode' => $request->program_studi_kode,
-                'jenis_pekerjaan' => $request->jenis_pekerjaan,
-                'tempat_bekerja' => $request->tempat_bekerja
+                'alamat_saat_ini' => $request->alamat_saat_ini,
+                'nama_perusahaan' => $request->nama_perusahaan,
+                'alamat_perusahaan' => $request->alamat_perusahaan,
+                'posisi_jabatan' => $request->posisi_jabatan,
+                'status_pekerjaan' => $request->status_pekerjaan,
+                'jenis_perusahaan' => $request->jenis_perusahaan,
+                'gaji' => $request->gaji,
+                'lama_mendapat_pekerjaan' => $request->lama_mendapat_pekerjaan,
+                'sumber_informasi_lowongan' => $request->sumber_informasi_lowongan,
+                'kesesuaian_bidang' => $request->kesesuaian_bidang,
+                'alasan_belum_bekerja' => $request->alasan_belum_bekerja,
+                'menjalankan_usaha' => $request->menjalankan_usaha,
+                'jenis_usaha' => $request->jenis_usaha,
+                'tahun_mulai_usaha' => $request->tahun_mulai_usaha,
+                'jumlah_karyawan' => $request->jumlah_karyawan,
+                'omset_bulanan' => $request->omset_bulanan,
+                'tantangan_usaha' => $request->tantangan_usaha
             ]);
         }
 
         Alert::success('Sukses', 'Data berhasil disimpan');
         return redirect()->back();
     }
+
+    public function saran(Request $request)
+    {
+        $request->validate([
+            'data_alumni_id' => 'required|string|max:255',
+            'saran' => 'required|string|max:255',
+        ]);
+
+        $sarana = SaranAlumni::create([
+            'data_alumni_id' => $request->data_alumni_id,
+            'saran' => $request->saran,
+        ]);
+
+        Alert::success('Sukses', 'Saran berhasil dikirim');
+        return redirect()->back();
+    }
+
+   
 }
