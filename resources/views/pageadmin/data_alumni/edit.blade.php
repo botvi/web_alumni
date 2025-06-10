@@ -158,7 +158,7 @@
 
                             <div class="col-md-12">
                                 <label for="nomor_seri_ijazah" class="form-label">Nomor Seri Ijazah</label>
-                                <input type="text" class="form-control" id="nomor_seri_ijazah" name="nomor_seri_ijazah" value="{{ old('nomor_seri_ijazah', $alumni->nomor_seri_ijazah) }}" required>
+                                <input type="text" class="form-control" id="nomor_seri_ijazah" name="nomor_seri_ijazah" value="{{ old('nomor_seri_ijazah', $alumni->nomor_seri_ijazah) }}">
                                 <small class="text-danger">
                                     @foreach ($errors->get('nomor_seri_ijazah') as $error)
                                         <li>{{ $error }}</li>
@@ -168,7 +168,7 @@
 
                             <div class="col-md-12">
                                 <label for="nomor_seri_transkrip" class="form-label">Nomor Seri Transkrip</label>
-                                <input type="text" class="form-control" id="nomor_seri_transkrip" name="nomor_seri_transkrip" value="{{ old('nomor_seri_transkrip', $alumni->nomor_seri_transkrip) }}" required>
+                                <input type="text" class="form-control" id="nomor_seri_transkrip" name="nomor_seri_transkrip" value="{{ old('nomor_seri_transkrip', $alumni->nomor_seri_transkrip) }}">
                                 <small class="text-danger">
                                     @foreach ($errors->get('nomor_seri_transkrip') as $error)
                                         <li>{{ $error }}</li>
@@ -178,7 +178,7 @@
 
                             <div class="col-md-12">
                                 <label for="pisn" class="form-label">PISN</label>
-                                <input type="text" class="form-control" id="pisn" name="pisn" value="{{ old('pisn', $alumni->pisn) }}" required>
+                                <input type="text" class="form-control" id="pisn" name="pisn" value="{{ old('pisn', $alumni->pisn) }}">
                                 <small class="text-danger">
                                     @foreach ($errors->get('pisn') as $error)
                                         <li>{{ $error }}</li>
@@ -188,7 +188,7 @@
 
                             <div class="col-md-12">
                                 <label for="nik" class="form-label">NIK</label>
-                                <input type="number" class="form-control" id="nik" name="nik" value="{{ old('nik', $alumni->nik) }}" required>
+                                <input type="number" class="form-control" id="nik" name="nik" value="{{ old('nik', $alumni->nik) }}">
                                 <small class="text-danger">
                                     @foreach ($errors->get('nik') as $error)
                                         <li>{{ $error }}</li>
