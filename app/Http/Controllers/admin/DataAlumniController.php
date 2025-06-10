@@ -55,10 +55,10 @@ class DataAlumniController extends Controller
                 'tahun_wisuda' => 'required|string|max:255',
                 'fakultas_kode' => 'required|string|max:255',
                 'program_studi_kode' => 'required|string|max:255',
-                'nomor_seri_ijazah' => 'required|string|max:255',
-                'nomor_seri_transkrip' => 'required|string|max:255',
-                'pisn' => 'required|string|max:255',
-                'nik' => 'required|string|max:255|unique:data_alumnis,nik',
+                'nomor_seri_ijazah' => 'nullable|string|max:255',
+                'nomor_seri_transkrip' => 'nullable|string|max:255',
+                'pisn' => 'nullable|string|max:255',
+                'nik' => 'nullable|string|max:255|unique:data_alumnis,nik',
             ]);
 
             $dataAlumni = DataAlumni::create([
@@ -119,10 +119,10 @@ class DataAlumniController extends Controller
                 'tahun_wisuda' => 'required|string|max:255',
                 'fakultas_kode' => 'required|string|max:255',
                 'program_studi_kode' => 'required|string|max:255',
-                'nomor_seri_ijazah' => 'required|string|max:255',
-                'nomor_seri_transkrip' => 'required|string|max:255',
-                'pisn' => 'required|string|max:255',
-                'nik' => 'required|string|max:255|unique:data_alumnis,nik,' . $id,
+                'nomor_seri_ijazah' => 'nullable|string|max:255',
+                'nomor_seri_transkrip' => 'nullable|string|max:255',
+                'pisn' => 'nullable|string|max:255',
+                'nik' => 'nullable|string|max:255|unique:data_alumnis,nik,' . $id,
             ]);
 
             $dataAlumni->update([
