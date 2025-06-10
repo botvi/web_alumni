@@ -62,6 +62,11 @@
                                         <th>Gaji</th>
                                         <th>Lama Mendapat Pekerjaan</th>
                                         <th>Kesesuaian Bidang</th>
+                                        <th>Nomor Telepon</th>
+                                        <th>Email</th>
+                                        <th>Alamat Saat Ini</th>
+                                        <th>Alamat Perusahaan</th>
+                                        <th>Sumber Informasi Lowongan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -73,9 +78,14 @@
                                         <td>{{ $data->posisi_jabatan ?? '-' }}</td>
                                         <td>{{ $data->status_pekerjaan ?? '-' }}</td>
                                         <td>{{ $data->jenis_perusahaan ?? '-' }}</td>
-                                        <td>{{ $data->gaji ?? '-' }}</td>
+                                        <td>Rp. {{ number_format($data->gaji, 0, ',', '.') ?? '-' }}</td>
                                         <td>{{ $data->lama_mendapat_pekerjaan ?? '-' }}</td>
                                         <td>{{ $data->kesesuaian_bidang ?? '-' }}</td>
+                                        <td>{{ $data->nomor_telepon ?? '-' }}</td>
+                                        <td>{{ $data->email ?? '-' }}</td>
+                                        <td>{{ $data->alamat_saat_ini ?? '-' }}</td>
+                                        <td>{{ $data->alamat_perusahaan ?? '-' }}</td>
+                                        <td>{{ $data->sumber_informasi_lowongan ?? '-' }}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -130,7 +140,7 @@
                                         <td>{{ $data->jenis_usaha ?? '-' }}</td>
                                         <td>{{ $data->tahun_mulai_usaha ?? '-' }}</td>
                                         <td>{{ $data->jumlah_karyawan ?? '-' }}</td>
-                                        <td>{{ $data->omset_bulanan ?? '-' }}</td>
+                                        <td>Rp. {{ number_format($data->omset_bulanan, 0, ',', '.') ?? '-' }}</td>
                                         <td>{{ $data->tantangan_usaha ?? '-' }}</td>
                                     </tr>
                                     @endforeach

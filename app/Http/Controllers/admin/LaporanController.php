@@ -43,35 +43,57 @@ class LaporanController extends Controller
         return redirect()->route('laporan.index');
     }
 
-    public function printdataalumni()
+    public function printdataalumni(Request $request)
     {
         $dataLaporan = DataLaporan::first();
-        $dataAlumni = DataAlumni::with('fakultas', 'programStudi')->get();
-        return view('pageadmin.laporan.printdataalumni', compact('dataAlumni', 'dataLaporan'));
+        $tahun = $request->input('tahun_wisuda', date('Y'));
+        
+        $dataAlumni = DataAlumni::with('fakultas', 'programStudi')
+            ->where('tahun_wisuda', $tahun)
+            ->get();
+            
+        return view('pageadmin.laporan.printdataalumni', compact('dataAlumni', 'dataLaporan', 'tahun'));
     }
 
-    public function printdataalumniyangbekerja()
+    public function printdataalumniyangbekerja(Request $request)
     {
         $dataLaporan = DataLaporan::first();
-        $dataPekerjaanAlumni = DataPekerjaanAlumni::with('dataAlumni')
+        $tahun = $request->input('tahun_wisuda', date('Y'));
+        
+        $dataPekerjaanAlumni = DataPekerjaanAlumni::with(['dataAlumni' => function($query) use ($tahun) {
+                $query->where('tahun_wisuda', $tahun);
+            }])
             ->where('apakah_bekerja', 'Ya')
             ->get();
-        return view('pageadmin.laporan.dataalumniyangbekerja', compact('dataPekerjaanAlumni', 'dataLaporan'));
+            
+        return view('pageadmin.laporan.dataalumniyangbekerja', compact('dataPekerjaanAlumni', 'dataLaporan', 'tahun'));
     }
-    public function printdataalumniyangtidakbekerja()
+
+    public function printdataalumniyangtidakbekerja(Request $request)
     {
         $dataLaporan = DataLaporan::first();
-        $dataPekerjaanAlumni = DataPekerjaanAlumni::with('dataAlumni')
+        $tahun = $request->input('tahun_wisuda', date('Y'));
+        
+        $dataPekerjaanAlumni = DataPekerjaanAlumni::with(['dataAlumni' => function($query) use ($tahun) {
+                $query->where('tahun_wisuda', $tahun);
+            }])
             ->where('apakah_bekerja', 'Tidak')
             ->get();
-        return view('pageadmin.laporan.dataalumniyangtidakbekerja', compact('dataPekerjaanAlumni', 'dataLaporan'));
+            
+        return view('pageadmin.laporan.dataalumniyangtidakbekerja', compact('dataPekerjaanAlumni', 'dataLaporan', 'tahun'));
     }
-    public function printdataalumniyangwirausaha()
+
+    public function printdataalumniyangwirausaha(Request $request)
     {
         $dataLaporan = DataLaporan::first();
-        $dataPekerjaanAlumni = DataPekerjaanAlumni::with('dataAlumni')
+        $tahun = $request->input('tahun_wisuda', date('Y'));
+        
+        $dataPekerjaanAlumni = DataPekerjaanAlumni::with(['dataAlumni' => function($query) use ($tahun) {
+                $query->where('tahun_wisuda', $tahun);
+            }])
             ->where('apakah_bekerja', 'Wirausaha')
             ->get();
-        return view('pageadmin.laporan.dataalumniyangwirausaha', compact('dataPekerjaanAlumni', 'dataLaporan'));
+            
+        return view('pageadmin.laporan.dataalumniyangwirausaha', compact('dataPekerjaanAlumni', 'dataLaporan', 'tahun'));
     }
 }

@@ -80,9 +80,9 @@ header('Pragma: public');
                 <td>{{ \Carbon\Carbon::parse($tracer->dataAlumni->tanggal_lahir)->isoFormat('D MMMM Y') }}</td>
                 <td>{{ $tracer->dataAlumni->jenis_kelamin }}</td>
                 <td>{{ $tracer->jenis_usaha }}</td>
-                <td>{{ $tracer->tahun_mulai }}</td>
+                <td>{{ $tracer->tahun_mulai_usaha }}</td>
                 <td>{{ $tracer->jumlah_karyawan }}</td>
-                <td>{{ $tracer->omset_bulanan }}</td>
+                <td>Rp. {{ number_format($tracer->omset_bulanan, 0, ',', '.') }}</td>
                 <td>{{ $tracer->tantangan_usaha }}</td>
             </tr>
         @endforeach

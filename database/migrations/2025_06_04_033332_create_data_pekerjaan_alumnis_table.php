@@ -36,7 +36,7 @@ return new class extends Migration
             $table->text('alasan_belum_bekerja')->nullable();
 
             // Jika Wirausaha
-            $table->boolean('menjalankan_usaha')->nullable();
+            $table->string('menjalankan_usaha')->nullable();
             $table->string('jenis_usaha')->nullable();
             $table->string('tahun_mulai_usaha')->nullable();
             $table->string('jumlah_karyawan')->nullable();

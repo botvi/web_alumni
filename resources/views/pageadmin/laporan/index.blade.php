@@ -70,58 +70,67 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-xl-6 mx-auto">
-                    <hr />
+
+            <div class="row mt-4">
+                <div class="col-xl-7 mx-auto">
                     <div class="card border-top border-0 border-4 border-primary">
                         <div class="card-body p-5">
-                            <div class="card-title d-flex align-items-center">  
-                                <div><i class="bx bx-file me-1 font-22 text-primary"></i></div>
-                                <h5 class="mb-0 text-primary">Laporan Data Alumni</h5>
-                            </div>
-                            <hr>
-                            <a href="{{ route('laporan.printdataalumni') }}" class="btn btn-primary px-5 {{ empty($dataLaporan->lampiran_daftar_wisuda) || empty($dataLaporan->nomor_daftar_wisuda) ? 'disabled' : '' }}" {{ empty($dataLaporan->lampiran_daftar_wisuda) || empty($dataLaporan->nomor_daftar_wisuda) ? 'onclick="return false;"' : '' }}>Cetak</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xl-6 mx-auto">
-                    <hr />
-                    <div class="card border-top border-0 border-4 border-primary">  
-                        <div class="card-body p-5">
                             <div class="card-title d-flex align-items-center">
-                                <div><i class="bx bx-file me-1 font-22 text-primary"></i></div>
-                                <h5 class="mb-0 text-primary">Laporan Data Pekerjaan Alumni</h5>
+                                <div><i class="bx bx-printer me-1 font-22 text-primary"></i></div>
+                                <h5 class="mb-0 text-primary">Print Laporan</h5>
                             </div>
                             <hr>
                             <div class="row g-3">
-                                <div class="col-md-4">
-                                    <a href="{{ route('laporan.printdataalumniyangbekerja') }}" 
-                                       class="btn btn-primary w-100 {{ empty($dataLaporan->lampiran_data_pekerjaan) || empty($dataLaporan->nomor_data_pekerjaan) ? 'disabled' : '' }}" 
-                                       {{ empty($dataLaporan->lampiran_data_pekerjaan) || empty($dataLaporan->nomor_data_pekerjaan) ? 'onclick="return false;"' : '' }}>
-                                        Cetak Data Alumni Bekerja
-                                    </a>
+                                <div class="col-12">
+                                    <form action="{{ route('laporan.printdataalumni') }}" method="GET" class="d-flex align-items-center">
+                                        <select name="tahun_wisuda" class="form-select me-2">
+                                            @php
+                                                $currentYear = date('Y');
+                                                $startYear = $currentYear - 5;
+                                                $endYear = $currentYear + 5;
+                                            @endphp
+                                            @for($year = $startYear; $year <= $endYear; $year++)
+                                                <option value="{{ $year }}">{{ $year }}</option>
+                                            @endfor
+                                        </select>
+                                        <button type="submit" class="btn btn-primary">Print Data Alumni</button>
+                                    </form>
                                 </div>
-                                <div class="col-md-4">
-                                    <a href="{{ route('laporan.printdataalumniyangtidakbekerja') }}" 
-                                       class="btn btn-primary w-100 {{ empty($dataLaporan->lampiran_data_pekerjaan) || empty($dataLaporan->nomor_data_pekerjaan) ? 'disabled' : '' }}" 
-                                       {{ empty($dataLaporan->lampiran_data_pekerjaan) || empty($dataLaporan->nomor_data_pekerjaan) ? 'onclick="return false;"' : '' }}>
-                                        Cetak Data Alumni Tidak Bekerja
-                                    </a>
+                                <div class="col-12">
+                                    <form action="{{ route('laporan.printdataalumniyangbekerja') }}" method="GET" class="d-flex align-items-center">
+                                        <select name="tahun_wisuda" class="form-select me-2">
+                                            @for($year = $startYear; $year <= $endYear; $year++)
+                                                <option value="{{ $year }}">{{ $year }}</option>
+                                            @endfor
+                                        </select>
+                                        <button type="submit" class="btn btn-primary">Print Data Alumni yang Bekerja</button>
+                                    </form>
                                 </div>
-                                <div class="col-md-4">
-                                    <a href="{{ route('laporan.printdataalumniyangwirausaha') }}" 
-                                       class="btn btn-primary w-100 {{ empty($dataLaporan->lampiran_data_pekerjaan) || empty($dataLaporan->nomor_data_pekerjaan) ? 'disabled' : '' }}" 
-                                       {{ empty($dataLaporan->lampiran_data_pekerjaan) || empty($dataLaporan->nomor_data_pekerjaan) ? 'onclick="return false;"' : '' }}>
-                                        Cetak Data Alumni Wirausaha
-                                    </a>
+                                <div class="col-12">
+                                    <form action="{{ route('laporan.printdataalumniyangtidakbekerja') }}" method="GET" class="d-flex align-items-center">
+                                        <select name="tahun_wisuda" class="form-select me-2">
+                                            @for($year = $startYear; $year <= $endYear; $year++)
+                                                <option value="{{ $year }}">{{ $year }}</option>
+                                            @endfor
+                                        </select>
+                                        <button type="submit" class="btn btn-primary">Print Data Alumni yang Tidak Bekerja</button>
+                                    </form>
+                                </div>
+                                <div class="col-12">
+                                    <form action="{{ route('laporan.printdataalumniyangwirausaha') }}" method="GET" class="d-flex align-items-center">
+                                        <select name="tahun_wisuda" class="form-select me-2">
+                                            @for($year = $startYear; $year <= $endYear; $year++)
+                                                <option value="{{ $year }}">{{ $year }}</option>
+                                            @endfor
+                                        </select>
+                                        <button type="submit" class="btn btn-primary">Print Data Alumni yang Wirausaha</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
 
         </div>
     </div>

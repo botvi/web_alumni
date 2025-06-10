@@ -83,7 +83,7 @@ header('Pragma: public');
                 <td>{{ $tracer->posisi_jabatan }}</td>
                 <td>{{ $tracer->status_pekerjaan }}</td>
                 <td>{{ $tracer->jenis_perusahaan }}</td>
-                <td>{{ $tracer->gaji }}</td>
+                <td>Rp. {{ number_format($tracer->gaji, 0, ',', '.') }}</td>
                 <td>{{ $tracer->lama_mendapat_pekerjaan }}</td>
                 <td>{{ $tracer->kesesuaian_bidang }}</td>
             </tr>

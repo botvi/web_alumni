@@ -57,6 +57,16 @@
                                         <input type="text" class="form-control bg-light" name="program_studi_kode"
                                             value="{{ $user->programStudi->nama_prodi }}" readonly>
                                     </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Nomor Seri Ijazah</label>
+                                        <input type="text" class="form-control bg-light" name="nomor_seri_ijazah"
+                                            value="{{ $user->nomor_seri_ijazah ?? '' }}" readonly>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Nomor Seri Transkip</label>
+                                        <input type="text" class="form-control bg-light" name="nomor_seri_transkip"
+                                            value="{{ $user->nomor_seri_transkrip ?? '' }}" readonly>
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
@@ -78,6 +88,11 @@
                                         <label class="form-label">NIK</label>
                                         <input type="text" class="form-control" name="nik"
                                             value="{{ $user->nik ?? '' }}" readonly>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">PISN</label>
+                                        <input type="text" class="form-control" name="pisn"
+                                            value="{{ $user->pisn ?? '' }}" readonly>
                                     </div>
                                 </div>
                             </div>
