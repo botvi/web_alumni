@@ -69,6 +69,11 @@ header('Pragma: public');
             <th style="width: 10%;">GAJI</th>
             <th style="width: 10%;">LAMA MENDAPAT PEKERJAAN</th>
             <th style="width: 10%;">KESESUAIAN BIDANG</th>
+            <th style="width: 10%;">NOMOR TELEPON</th>
+            <th style="width: 10%;">EMAIL</th>
+            <th style="width: 10%;">ALAMAT SAAT INI</th>
+            <th style="width: 10%;">ALAMAT PERUSAHAAN</th>
+            <th style="width: 10%;">SUMBER INFORMASI LOWONGAN</th>
         </tr>
     </thead>
     <tbody>
@@ -86,6 +91,11 @@ header('Pragma: public');
                 <td>Rp. {{ number_format($tracer->gaji, 0, ',', '.') }}</td>
                 <td>{{ $tracer->lama_mendapat_pekerjaan }}</td>
                 <td>{{ $tracer->kesesuaian_bidang }}</td>
+                <td>{{ $tracer->dataAlumni->nomor_telepon }}</td>
+                <td>{{ $tracer->dataAlumni->email }}</td>
+                <td>{{ $tracer->dataAlumni->alamat_saat_ini }}</td>
+                <td>{{ $tracer->alamat_perusahaan }}</td>
+                <td>{{ $tracer->sumber_informasi_lowongan }}</td>
             </tr>
         @endforeach
     </tbody>
