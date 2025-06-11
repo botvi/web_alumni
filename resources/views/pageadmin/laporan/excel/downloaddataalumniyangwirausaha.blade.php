@@ -1,38 +1,35 @@
 <?php
-// header('Content-Type: application/vnd.ms-excel');
-// header('Content-Disposition: attachment;filename="Laporan Data Pekerjaan Alumni.xls"');
-// header('Cache-Control: max-age=0');
-// header('Cache-Control: must-revalidate');
-// header('Pragma: public');
+header('Content-Type: application/vnd.ms-excel');
+header('Content-Disposition: attachment;filename="Laporan Data Alumni yang Wirausaha.xls"');
+header('Cache-Control: max-age=0');
+header('Cache-Control: must-revalidate');
+header('Pragma: public');
 ?>
-<a href="{{ route('laporan.downloaddataalumniyangtidakbekerja', ['tahun_wisuda' => $tahun]) }}" target="_blank" style="display: inline-block; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: background-color 0.3s ease; margin-right: 10px;">Download Excel</a>
-
-<a href="{{ route('laporan.index') }}" style="display: inline-block; padding: 10px 20px; background-color: #dc3545; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: background-color 0.3s ease;">Kembali</a>
 <table style="font-family: 'Times New Roman', Times, serif; width: 100%; margin-bottom: 20px;">
     <tr>
         <td colspan="3" rowspan="5" style="font-size: 16px; font-weight: bold; text-align: center;">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9xJm1mCrwmP1r0XKx5HcfhqDMFQh4xBegxg&s"  height="100px" width="100px">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9xJm1mCrwmP1r0XKx5HcfhqDMFQh4xBegxg&s"  height="20px" width="20px">
         </td>
     </tr>
     <tr>
-        <td colspan="3" style="font-size: 16px; font-weight: bold; text-align: center;">
+        <td colspan="8" style="font-size: 16px; font-weight: bold; text-align: center;">
             YAYASAN PERGURUAN TINGGI ISLAM KUANTAN SINGINGI
         </td>
     </tr>
     <tr>
-        <td colspan="3" style="font-size: 16px; font-weight: bold; text-align: center;">
+        <td colspan="8" style="font-size: 16px; font-weight: bold; text-align: center;">
             UNIVERSITAS ISLAM KUANTAN SINGINGI
         </td>
     </tr>
     <tr>
-        <td colspan="3" style="font-size: 16px; font-weight: bold; text-align: center;">
+        <td colspan="8" style="font-size: 16px; font-weight: bold; text-align: center;">
             Jl. Gatot Subroto KM 7 Teluk Kuantan Telp. 0760-561655 Fax. 0760-561655
         </td>
     </tr>
     
     <tr>
-        <td colspan="3" style="font-size: 16px; font-weight: bold; text-align: center;">
-            DATA DATA ALUMNI YANG TIDAK BEKERJA
+        <td colspan="8" style="font-size: 16px; font-weight: bold; text-align: center;">
+            DATA DATA ALUMNI YANG WIRAUSAHA
         </td>
     </tr>
 </table>
@@ -66,8 +63,11 @@
             <th style="width: 10%;">TEMPAT LAHIR</th>
             <th style="width: 10%;">TANGGAL LAHIR</th>
             <th style="width: 10%;">JENIS KELAMIN</th>
-            <th style="width: 10%;">ALASAN BELUM BEKERJA</th>
-          
+            <th style="width: 10%;">JENIS USAHA</th>
+            <th style="width: 10%;">TAHUN MULAI</th>
+            <th style="width: 10%;">JUMLAH KARYAWAN</th>
+            <th style="width: 10%;">OMSET BULANAN</th>
+            <th style="width: 10%;">TANTANGAN USAHA</th>
         </tr>
     </thead>
     <tbody>
@@ -79,7 +79,11 @@
                 <td>{{ $tracer->dataAlumni->tempat_lahir }}</td>
                 <td>{{ \Carbon\Carbon::parse($tracer->dataAlumni->tanggal_lahir)->isoFormat('D MMMM Y') }}</td>
                 <td>{{ $tracer->dataAlumni->jenis_kelamin }}</td>
-                <td>{{ $tracer->alasan_belum_bekerja }}</td>
+                <td>{{ $tracer->jenis_usaha }}</td>
+                <td>{{ $tracer->tahun_mulai_usaha }}</td>
+                <td>{{ $tracer->jumlah_karyawan }}</td>
+                <td>Rp. {{ number_format($tracer->omset_bulanan, 0, ',', '.') }}</td>
+                <td>{{ $tracer->tantangan_usaha }}</td>
             </tr>
         @endforeach
     </tbody>

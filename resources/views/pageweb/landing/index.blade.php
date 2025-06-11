@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Hero Section -->
-    <section id="hero" class="hero section">
+    <section id="hero" class="hero section" style="background: #f2f2f2 url('https://assets.siakadcloud.com/assets/v1/img/pattern/pat_04.png') repeat;">
         <div class="container">
             <div class="row gy-4">
                 <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
@@ -49,8 +49,8 @@
                     </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 hero-img text-center" data-aos="zoom-out" data-aos-delay="100">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEizlODAh8lXFSXX29FhoUCK3LAFFfQ6l5hUuBQ10ZkVl5RN1fIAoiUX63vpcLYfCZWXLvabvXw5feuTPzs3HOW5pSVzbRoveqevTtESnuAvDW3neKiisGrmDNlXYB5l52pNP8QYvvI_XHL0B31ZcuQ38RsA_gMnOcuJ1FmSJO7pgCDzLLBi9ZAcCNkD/s320/GKL2_Universitas%20Islam%20Kuantan%20Singingi%20-%20Koleksilogo.com.jpg"
-                        class="img-fluid animated mx-auto" alt="">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHtY5vNkO7JLva9SeAm6SX3tnntUxkc7rFTp5Y4CGR2LSirLfbv6SOPUC6knxSOvK-IMlji96dO37SOr2c4bzoB_GvydCD_0E0HuIfJKStZktKEAmVBw0Qd_R6OpuSSdywrE3hv9GjoFA/s0/Universitas_Islam_Kuantan_Singingi.png"
+                        class="img-fluid animated mx-auto" style="width: 70%; height: 70%; object-fit: contain;" alt="">
                 </div>
             </div>
         </div>
@@ -60,7 +60,7 @@
 
 
     <!-- Lowongan Kerja Section -->
-    <section id="services" class="services section light-background">
+    <section id="services" class="services section light-background" style="background: #f2f2f2 url('https://assets.siakadcloud.com/assets/v1/img/pattern/pat_04.png') repeat;">
 
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">

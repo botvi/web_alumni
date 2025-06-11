@@ -1,14 +1,17 @@
 <?php
-header('Content-Type: application/vnd.ms-excel');
-header('Content-Disposition: attachment;filename="Laporan Data Pekerjaan Alumni.xls"');
-header('Cache-Control: max-age=0');
-header('Cache-Control: must-revalidate');
-header('Pragma: public');
+// header('Content-Type: application/vnd.ms-excel');
+// header('Content-Disposition: attachment;filename="Laporan Data Pekerjaan Alumni.xls"');
+// header('Cache-Control: max-age=0');
+// header('Cache-Control: must-revalidate');
+// header('Pragma: public');   
 ?>
+<a href="{{ route('laporan.downloaddataalumniyangwirausaha', ['tahun_wisuda' => $tahun]) }}" target="_blank" style="display: inline-block; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: background-color 0.3s ease; margin-right: 10px;">Download Excel</a>
+
+<a href="{{ route('laporan.index') }}" style="display: inline-block; padding: 10px 20px; background-color: #dc3545; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: background-color 0.3s ease;">Kembali</a>
 <table style="font-family: 'Times New Roman', Times, serif; width: 100%; margin-bottom: 20px;">
     <tr>
         <td colspan="3" rowspan="5" style="font-size: 16px; font-weight: bold; text-align: center;">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9xJm1mCrwmP1r0XKx5HcfhqDMFQh4xBegxg&s"  height="20px" width="20px">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9xJm1mCrwmP1r0XKx5HcfhqDMFQh4xBegxg&s"  height="100px" width="100px">
         </td>
     </tr>
     <tr>
@@ -74,16 +77,16 @@ header('Pragma: public');
         @foreach ($dataPekerjaanAlumni as $tracer)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $tracer->dataAlumni->npm }}</td>
-                <td>{{ $tracer->dataAlumni->nama }}</td>
-                <td>{{ $tracer->dataAlumni->tempat_lahir }}</td>
-                <td>{{ \Carbon\Carbon::parse($tracer->dataAlumni->tanggal_lahir)->isoFormat('D MMMM Y') }}</td>
-                <td>{{ $tracer->dataAlumni->jenis_kelamin }}</td>
-                <td>{{ $tracer->jenis_usaha }}</td>
-                <td>{{ $tracer->tahun_mulai_usaha }}</td>
-                <td>{{ $tracer->jumlah_karyawan }}</td>
-                <td>Rp. {{ number_format($tracer->omset_bulanan, 0, ',', '.') }}</td>
-                <td>{{ $tracer->tantangan_usaha }}</td>
+                <td>{{ $tracer->dataAlumni->npm ?? '-' }}</td>
+                <td>{{ $tracer->dataAlumni->nama ?? '-' }}</td>
+                <td>{{ $tracer->dataAlumni->tempat_lahir ?? '-' }}</td>
+                <td>{{ $tracer->dataAlumni && $tracer->dataAlumni->tanggal_lahir ? \Carbon\Carbon::parse($tracer->dataAlumni->tanggal_lahir)->locale('id')->isoFormat('D MMMM Y') : '-' }}</td>
+                <td>{{ $tracer->dataAlumni->jenis_kelamin ?? '-' }}</td>
+                <td>{{ $tracer->jenis_usaha ?? '-' }}</td>
+                <td>{{ $tracer->tahun_mulai_usaha ?? '-' }}</td>
+                <td>{{ $tracer->jumlah_karyawan ?? '-' }}</td>
+                <td>{{ $tracer->omset_bulanan ? 'Rp. ' . number_format($tracer->omset_bulanan, 0, ',', '.') : '-' }}</td>
+                <td>{{ $tracer->tantangan_usaha ?? '-' }}</td>
             </tr>
         @endforeach
     </tbody>

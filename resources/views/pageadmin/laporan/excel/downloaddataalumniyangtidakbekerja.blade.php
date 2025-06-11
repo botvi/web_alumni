@@ -1,17 +1,14 @@
 <?php
-// header('Content-Type: application/vnd.ms-excel');
-// header('Content-Disposition: attachment;filename="Laporan Data Pekerjaan Alumni.xls"');
-// header('Cache-Control: max-age=0');
-// header('Cache-Control: must-revalidate');
-// header('Pragma: public');
+header('Content-Type: application/vnd.ms-excel');
+header('Content-Disposition: attachment;filename="Laporan Data Alumni yang Tidak Bekerja.xls"');
+header('Cache-Control: max-age=0');
+header('Cache-Control: must-revalidate');
+header('Pragma: public');
 ?>
-<a href="{{ route('laporan.downloaddataalumniyangtidakbekerja', ['tahun_wisuda' => $tahun]) }}" target="_blank" style="display: inline-block; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: background-color 0.3s ease; margin-right: 10px;">Download Excel</a>
-
-<a href="{{ route('laporan.index') }}" style="display: inline-block; padding: 10px 20px; background-color: #dc3545; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: background-color 0.3s ease;">Kembali</a>
 <table style="font-family: 'Times New Roman', Times, serif; width: 100%; margin-bottom: 20px;">
     <tr>
         <td colspan="3" rowspan="5" style="font-size: 16px; font-weight: bold; text-align: center;">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9xJm1mCrwmP1r0XKx5HcfhqDMFQh4xBegxg&s"  height="100px" width="100px">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9xJm1mCrwmP1r0XKx5HcfhqDMFQh4xBegxg&s"  height="20px" width="20px">
         </td>
     </tr>
     <tr>

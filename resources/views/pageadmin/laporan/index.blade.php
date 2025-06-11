@@ -93,7 +93,7 @@
                                                 <option value="{{ $year }}">{{ $year }}</option>
                                             @endfor
                                         </select>
-                                        <button type="submit" class="btn btn-primary">Print Data Alumni</button>
+                                        <button type="submit" class="btn btn-primary" target="_blank">Print Data Alumni</button>
                                     </form>
                                 </div>
                                 <div class="col-12">
@@ -103,7 +103,7 @@
                                                 <option value="{{ $year }}">{{ $year }}</option>
                                             @endfor
                                         </select>
-                                        <button type="submit" class="btn btn-primary">Print Data Alumni yang Bekerja</button>
+                                        <button type="submit" class="btn btn-primary" target="_blank">Print Data Alumni yang Bekerja</button>
                                     </form>
                                 </div>
                                 <div class="col-12">
@@ -113,7 +113,7 @@
                                                 <option value="{{ $year }}">{{ $year }}</option>
                                             @endfor
                                         </select>
-                                        <button type="submit" class="btn btn-primary">Print Data Alumni yang Tidak Bekerja</button>
+                                        <button type="submit" class="btn btn-primary" target="_blank">Print Data Alumni yang Tidak Bekerja</button>
                                     </form>
                                 </div>
                                 <div class="col-12">
@@ -123,7 +123,7 @@
                                                 <option value="{{ $year }}">{{ $year }}</option>
                                             @endfor
                                         </select>
-                                        <button type="submit" class="btn btn-primary">Print Data Alumni yang Wirausaha</button>
+                                        <button type="submit" class="btn btn-primary" target="_blank">Print Data Alumni yang Wirausaha</button>
                                     </form>
                                 </div>
                             </div>

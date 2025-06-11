@@ -71,6 +71,12 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/laporan/printdataalumniyangtidakbekerja', [LaporanController::class, 'printdataalumniyangtidakbekerja'])->name('laporan.printdataalumniyangtidakbekerja');
     Route::get('/laporan/printdataalumniyangwirausaha', [LaporanController::class, 'printdataalumniyangwirausaha'])->name('laporan.printdataalumniyangwirausaha');
   
+
+    Route::get('/laporan/downloaddataalumni', [LaporanController::class, 'downloaddataalumni'])->name('laporan.downloaddataalumni');
+    Route::get('/laporan/downloaddataalumniyangbekerja', [LaporanController::class, 'downloaddataalumniyangbekerja'])->name('laporan.downloaddataalumniyangbekerja');
+    Route::get('/laporan/downloaddataalumniyangtidakbekerja', [LaporanController::class, 'downloaddataalumniyangtidakbekerja'])->name('laporan.downloaddataalumniyangtidakbekerja');
+    Route::get('/laporan/downloaddataalumniyangwirausaha', [LaporanController::class, 'downloaddataalumniyangwirausaha'])->name('laporan.downloaddataalumniyangwirausaha');
+
     Route::get('/profil-admin', [ProfilAdminController::class, 'index'])->name('profil-admin.index');
     Route::post('/profil-admin', [ProfilAdminController::class, 'update'])->name('profil-admin.update');
 });

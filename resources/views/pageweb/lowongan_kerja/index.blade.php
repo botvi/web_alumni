@@ -3,7 +3,7 @@
 @section('content')
 
  <!-- Services Section -->
- <section id="services" class="services section light-background">
+ <section id="services" class="services section light-background" style="background: #f2f2f2 url('https://assets.siakadcloud.com/assets/v1/img/pattern/pat_04.png') repeat;">
 
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
