@@ -140,7 +140,7 @@
                                     </small>
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="logo_perusahaan" class="form-label">Logo Perusahaan</label>
+                                    <label for="logo_perusahaan" class="form-label">Brosur</label>
                                     <input type="file" class="form-control" id="logo_perusahaan" name="logo_perusahaan">
                                     <small class="text-danger">
                                         @foreach ($errors->get('logo_perusahaan') as $error)

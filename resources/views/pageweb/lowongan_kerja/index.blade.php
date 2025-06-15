@@ -18,7 +18,7 @@
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                 <div class="service-item position-relative">
                     <div class="text-center mb-3">
-                        <img src="{{ asset('uploads/logo_perusahaan/'.$item->logo_perusahaan) }}" alt="Logo Perusahaan" class="img-fluid rounded" width="100">
+                        <img src="{{ asset('uploads/logo_perusahaan/'.$item->logo_perusahaan) }}" alt="Logo Perusahaan" class="img-fluid rounded" width="100" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#imageModal{{ $item->id }}" onclick="openImageModal('{{ asset('uploads/logo_perusahaan/'.$item->logo_perusahaan) }}', '{{ $item->nama_perusahaan }}')">
                     </div>
                     <h3 class="text-center">{{ $item->nama_perusahaan }}</h3>
                     <h4 class="text-center">{{ $item->nama_lowongan }}</h4>
@@ -82,4 +82,28 @@
     </div>
 
 </section><!-- /Services Section -->
+
+<!-- Modal untuk Preview Gambar -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="imageModalLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img src="" id="modalImage" class="img-fluid" alt="Preview Image">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function openImageModal(imageSrc, companyName) {
+    document.getElementById('modalImage').src = imageSrc;
+    document.getElementById('imageModalLabel').textContent = companyName;
+    new bootstrap.Modal(document.getElementById('imageModal')).show();
+}
+</script>
+
 @endsection

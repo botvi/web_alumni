@@ -25,7 +25,7 @@
                     <table id="example2" class="table table-striped table-bordered">
                         <thead>
                             <tr>
-                                <th>Logo Perusahaan</th>
+                                <th>Brosur</th>
                                 <th>Nama Perusahaan</th>
                                 <th>Nama Lowongan</th>
                                 <th>Deskripsi</th>
@@ -69,7 +69,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>Logo Perusahaan</th>
+                                <th>Brosur</th>
                                 <th>Nama Perusahaan</th>
                                 <th>Nama Lowongan</th>
                                 <th>Deskripsi</th>

@@ -139,7 +139,7 @@
                                     </small>
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="logo_perusahaan" class="form-label">Logo Perusahaan</label>
+                                    <label for="logo_perusahaan" class="form-label">Brosur</label>
                                     @if($lowongan->logo_perusahaan)
                                         <div class="mb-3">
                                             <img src="{{ asset('uploads/logo_perusahaan/'.$lowongan->logo_perusahaan) }}" alt="Logo Perusahaan" class="img-thumbnail" width="200">
