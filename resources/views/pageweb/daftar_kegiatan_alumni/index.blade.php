@@ -12,9 +12,9 @@
     </div><!-- End Section Title -->
 
     <div class="container py-5">
-        <div class="row g-4">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
             @foreach ($kegiatan as $item)
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="col" data-aos="fade-up" data-aos-delay="100">
                 <div class="service-item position-relative h-100 shadow-sm rounded">
                     <div class="text-center p-3">
                         <img src="{{ asset('uploads/kegiatan/'.$item->gambar) }}" alt="Gambar Kegiatan" class="img-fluid rounded" style="width: 100%; height: 200px; object-fit: cover;">
