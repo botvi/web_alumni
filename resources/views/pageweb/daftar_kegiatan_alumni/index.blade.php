@@ -25,7 +25,6 @@
                             <i class="bi bi-geo-alt-fill text-primary"></i>
                             <span>{{ $item->tempat }}</span>
                         </div>
-                        <p class="text-center mb-4">{!! Str::limit($item->deskripsi_kegiatan, 100) !!}</p>
                         <div class="text-center mt-auto">
                             <a href="#" class="btn btn-primary px-4" data-bs-toggle="modal" data-bs-target="#modalKegiatan{{ $item->id }}">Baca Selengkapnya</a>
                         </div>
