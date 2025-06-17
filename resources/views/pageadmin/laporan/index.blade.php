@@ -72,7 +72,7 @@
 
 
             <div class="row mt-4">
-                <div class="col-xl-7 mx-auto">
+                <div class="col-xl-10 mx-auto">
                     <div class="card border-top border-0 border-4 border-primary">
                         <div class="card-body p-5">
                             <div class="card-title d-flex align-items-center">
@@ -83,7 +83,7 @@
                             <div class="row g-3">
                                 <div class="col-12">
                                     <form action="{{ route('laporan.printdataalumni') }}" method="GET" class="d-flex align-items-center">
-                                        <select name="tahun_wisuda" class="form-select me-2">
+                                        <select name="tahun_wisuda" class="form-select me-2" id="tahun_wisuda">
                                             @php
                                                 $currentYear = date('Y');
                                                 $startYear = $currentYear - 5;
@@ -93,39 +93,80 @@
                                                 <option value="{{ $year }}">{{ $year }}</option>
                                             @endfor
                                         </select>
-                                        <button type="submit" class="btn btn-primary" target="_blank">Preview Data Alumni</button>
+                                        <button type="submit" class="btn btn-primary me-2" target="_blank">Preview Data Alumni</button>
+                                        <a href="#" class="btn btn-success" id="downloadBtn">Download Excel</a>
                                     </form>
                                 </div>
+
+                                <script>
+                                    document.getElementById('tahun_wisuda').addEventListener('change', function() {
+                                        var tahun = this.value;
+                                        var downloadBtn = document.getElementById('downloadBtn');
+                                        downloadBtn.href = "{{ route('laporan.downloaddataalumni') }}?tahun_wisuda=" + tahun;
+                                    });
+
+                                    // Set initial href
+                                    document.getElementById('downloadBtn').href = "{{ route('laporan.downloaddataalumni') }}?tahun_wisuda=" + document.getElementById('tahun_wisuda').value;
+                                </script>
                                 <div class="col-12">
                                     <form action="{{ route('laporan.printdataalumniyangbekerja') }}" method="GET" class="d-flex align-items-center">
-                                        <select name="tahun_wisuda" class="form-select me-2">
+                                        <select name="tahun_wisuda" class="form-select me-2" id="tahun_wisuda_bekerja">
                                             @for($year = $startYear; $year <= $endYear; $year++)
                                                 <option value="{{ $year }}">{{ $year }}</option>
                                             @endfor
                                         </select>
-                                        <button type="submit" class="btn btn-primary" target="_blank">Preview Data Alumni yang Bekerja</button>
+                                        <button type="submit" class="btn btn-primary me-2" target="_blank">Preview Data Alumni yang Bekerja</button>
+                                        <a href="#" class="btn btn-success" id="downloadBtnBekerja">Download Excel</a>
                                     </form>
                                 </div>
                                 <div class="col-12">
                                     <form action="{{ route('laporan.printdataalumniyangtidakbekerja') }}" method="GET" class="d-flex align-items-center">
-                                        <select name="tahun_wisuda" class="form-select me-2">
+                                        <select name="tahun_wisuda" class="form-select me-2" id="tahun_wisuda_tidak_bekerja">
                                             @for($year = $startYear; $year <= $endYear; $year++)
                                                 <option value="{{ $year }}">{{ $year }}</option>
                                             @endfor
                                         </select>
-                                        <button type="submit" class="btn btn-primary" target="_blank">Preview Data Alumni yang Tidak Bekerja</button>
+                                        <button type="submit" class="btn btn-primary me-2" target="_blank">Preview Data Alumni yang Tidak Bekerja</button>
+                                        <a href="#" class="btn btn-success" id="downloadBtnTidakBekerja">Download Excel</a>
                                     </form>
                                 </div>
                                 <div class="col-12">
                                     <form action="{{ route('laporan.printdataalumniyangwirausaha') }}" method="GET" class="d-flex align-items-center">
-                                        <select name="tahun_wisuda" class="form-select me-2">
+                                        <select name="tahun_wisuda" class="form-select me-2" id="tahun_wisuda_wirausaha">
                                             @for($year = $startYear; $year <= $endYear; $year++)
                                                 <option value="{{ $year }}">{{ $year }}</option>
                                             @endfor
                                         </select>
-                                        <button type="submit" class="btn btn-primary" target="_blank">Preview Data Alumni yang Wirausaha</button>
+                                        <button type="submit" class="btn btn-primary me-2" target="_blank">Preview Data Alumni yang Wirausaha</button>
+                                        <a href="#" class="btn btn-success" id="downloadBtnWirausaha">Download Excel</a>
                                     </form>
                                 </div>
+
+                                <script>
+                                    // Script untuk Data Alumni yang Bekerja
+                                    document.getElementById('tahun_wisuda_bekerja').addEventListener('change', function() {
+                                        var tahun = this.value;
+                                        var downloadBtn = document.getElementById('downloadBtnBekerja');
+                                        downloadBtn.href = "{{ route('laporan.downloaddataalumniyangbekerja') }}?tahun_wisuda=" + tahun;
+                                    });
+                                    document.getElementById('downloadBtnBekerja').href = "{{ route('laporan.downloaddataalumniyangbekerja') }}?tahun_wisuda=" + document.getElementById('tahun_wisuda_bekerja').value;
+
+                                    // Script untuk Data Alumni yang Tidak Bekerja
+                                    document.getElementById('tahun_wisuda_tidak_bekerja').addEventListener('change', function() {
+                                        var tahun = this.value;
+                                        var downloadBtn = document.getElementById('downloadBtnTidakBekerja');
+                                        downloadBtn.href = "{{ route('laporan.downloaddataalumniyangtidakbekerja') }}?tahun_wisuda=" + tahun;
+                                    });
+                                    document.getElementById('downloadBtnTidakBekerja').href = "{{ route('laporan.downloaddataalumniyangtidakbekerja') }}?tahun_wisuda=" + document.getElementById('tahun_wisuda_tidak_bekerja').value;
+
+                                    // Script untuk Data Alumni yang Wirausaha
+                                    document.getElementById('tahun_wisuda_wirausaha').addEventListener('change', function() {
+                                        var tahun = this.value;
+                                        var downloadBtn = document.getElementById('downloadBtnWirausaha');
+                                        downloadBtn.href = "{{ route('laporan.downloaddataalumniyangwirausaha') }}?tahun_wisuda=" + tahun;
+                                    });
+                                    document.getElementById('downloadBtnWirausaha').href = "{{ route('laporan.downloaddataalumniyangwirausaha') }}?tahun_wisuda=" + document.getElementById('tahun_wisuda_wirausaha').value;
+                                </script>
                             </div>
                         </div>
                     </div>

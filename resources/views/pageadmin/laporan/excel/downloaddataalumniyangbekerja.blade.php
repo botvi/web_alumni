@@ -107,9 +107,9 @@ header('Pragma: public');
 <br>
 <br>
 
-<table style="margin-top: 20px; font-family: 'Times New Roman', Times, serif;">
+<table style="margin-left: 90%; margin-top: 20px; font-family: 'Times New Roman', Times, serif;">
     <tr>
-        <td colspan="7"></td>
+        <td colspan="16"></td>
         <td colspan="3">
             DITETAPKAN DI : TELUK KUANTAN<br>
             PADA TANGGAL : {{ \Carbon\Carbon::now()->locale('id')->isoFormat('D MMMM Y') }}<br>

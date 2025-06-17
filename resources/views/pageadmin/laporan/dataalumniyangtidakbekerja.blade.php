@@ -5,9 +5,7 @@
 // header('Cache-Control: must-revalidate');
 // header('Pragma: public');
 ?>
-<a href="{{ route('laporan.downloaddataalumniyangtidakbekerja', ['tahun_wisuda' => $tahun]) }}" target="_blank" style="display: inline-block; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: background-color 0.3s ease; margin-right: 10px;">Download Excel</a>
 
-<a href="{{ route('laporan.index') }}" style="display: inline-block; padding: 10px 20px; background-color: #dc3545; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: background-color 0.3s ease;">Kembali</a>
 <table style="font-family: 'Times New Roman', Times, serif; width: 100%; margin-bottom: 20px;">
     <tr>
         <td colspan="3" rowspan="5" style="font-size: 16px; font-weight: bold; text-align: center;">
@@ -91,7 +89,7 @@
 <br>
 <br>
 
-<table style="margin-top: 20px; font-family: 'Times New Roman', Times, serif;">
+<table style="margin-left: 60%; margin-top: 20px; font-family: 'Times New Roman', Times, serif;">
     <tr>
         <td colspan="7"></td>
         <td colspan="3">
@@ -101,5 +99,9 @@
             {{ $dataLaporan->nama_rektor }}<br>
             NIDN. {{ $dataLaporan->nidn_rektor }}
         </td>
-    </tr>
+    </tr>   
 </table>
+
+<script>
+    window.print();
+</script>
