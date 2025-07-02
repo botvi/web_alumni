@@ -78,7 +78,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/laporan/downloaddataalumniyangwirausaha', [LaporanController::class, 'downloaddataalumniyangwirausaha'])->name('laporan.downloaddataalumniyangwirausaha');
 
     Route::get('/profil-admin', [ProfilAdminController::class, 'index'])->name('profil-admin.index');
-    Route::post('/profil-admin', [ProfilAdminController::class, 'update'])->name('profil-admin.update');
+    Route::put('/profil-admin', [ProfilAdminController::class, 'update'])->name('profil-admin.update');
 });
 
 

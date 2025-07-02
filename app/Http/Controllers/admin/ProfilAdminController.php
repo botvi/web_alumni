@@ -25,15 +25,15 @@ class ProfilAdminController extends Controller
             'nama' => 'required', 
             'username' => 'required|unique:users,username,' . $admin->id,
             'email' => 'required|email|unique:users,email,' . $admin->id,
-            'password' => 'nullable|min:8'
+            'password' => 'nullable|min:8|confirmed'
         ]);
 
         if($validator->fails()) {
             Alert::toast('Terjadi kesalahan! ' . $validator->errors()->first(), 'error')->position('top-end');
-            return redirect()->back();
+            return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        $data = $request->except(['password']);
+        $data = $request->except(['password', 'password_confirmation']);
         
         if($request->filled('password')) {
             $data['password'] = Hash::make($request->password);

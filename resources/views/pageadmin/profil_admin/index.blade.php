@@ -63,15 +63,10 @@
                         <!-- Form Edit Profil -->
                         <div class="col-lg-8">
                             <div class="card">
-                                <form action="{{ route('profil-admin.update') }}" method="POST"
+                                <form action="{{ route('profil-admin.update') }}" method="POST">
                                     @csrf
                                     @method('PUT')
                                     <div class="card-body">
-                                      
-
-
-                                      
-
                                         <!-- Nama Penanggung Jawab -->
                                         <div class="row mb-3">
                                             <div class="col-sm-3">
@@ -79,7 +74,7 @@
                                             </div>
                                             <div class="col-sm-9 text-secondary">
                                                 <input type="text" name="nama" class="form-control"
-                                                    value="{{ $data->nama }}" />
+                                                    value="{{ old('nama', $data->nama) }}" />
                                                 <small class="text-danger">
                                                     @foreach ($errors->get('nama') as $error)
                                                         <li>{{ $error }}</li>
@@ -88,13 +83,13 @@
                                             </div>
                                         </div>
 
-                                        <!-- Alamat -->
+                                        <!-- Email -->
                                         <div class="row mb-3">
                                             <div class="col-sm-3">
                                                 <h6 class="mb-0">Email</h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
-                                                <textarea name="email" class="form-control">{{ $data->email }}</textarea>
+                                                <input type="email" name="email" class="form-control" value="{{ $data->email }}" />
                                                 <small class="text-danger">
                                                     @foreach ($errors->get('email') as $error)
                                                         <li>{{ $error }}</li>
